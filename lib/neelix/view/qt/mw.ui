@@ -1,0 +1,668 @@
+<!DOCTYPE UI><UI version="3.2" stdsetdef="1">
+<class>Neelix</class>
+<widget class="QMainWindow">
+    <property name="name">
+        <cstring>Neelix</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>747</width>
+            <height>543</height>
+        </rect>
+    </property>
+    <property name="caption">
+        <string>Neelix</string>
+        <comment>Recipe Management System</comment>
+    </property>
+    <property name="icon">
+        <pixmap>image0</pixmap>
+    </property>
+    <property name="iconText">
+        <string>Neelix</string>
+    </property>
+    <vbox>
+        <property name="name">
+            <cstring>unnamed</cstring>
+        </property>
+        <widget class="QSplitter">
+            <property name="name">
+                <cstring>splitter3</cstring>
+            </property>
+            <property name="orientation">
+                <enum>Horizontal</enum>
+            </property>
+            <widget class="QListView">
+                <column>
+                    <property name="text">
+                        <string>Shelf</string>
+                    </property>
+                    <property name="clickable">
+                        <bool>false</bool>
+                    </property>
+                    <property name="resizable">
+                        <bool>true</bool>
+                    </property>
+                </column>
+                <property name="name">
+                    <cstring>shelf</cstring>
+                </property>
+                <property name="sizePolicy">
+                    <sizepolicy>
+                        <hsizetype>5</hsizetype>
+                        <vsizetype>7</vsizetype>
+                        <horstretch>0</horstretch>
+                        <verstretch>0</verstretch>
+                    </sizepolicy>
+                </property>
+                <property name="rootIsDecorated">
+                    <bool>true</bool>
+                </property>
+            </widget>
+            <widget class="QGroupBox">
+                <property name="name">
+                    <cstring>counterBox</cstring>
+                </property>
+                <property name="title">
+                    <string>Counter</string>
+                </property>
+                <vbox>
+                    <property name="name">
+                        <cstring>unnamed</cstring>
+                    </property>
+                    <widget class="QWidgetStack">
+                        <property name="name">
+                            <cstring>counterStack</cstring>
+                        </property>
+                        <property name="enabled">
+                            <bool>true</bool>
+                        </property>
+                        <property name="sizePolicy">
+                            <sizepolicy>
+                                <hsizetype>5</hsizetype>
+                                <vsizetype>7</vsizetype>
+                                <horstretch>0</horstretch>
+                                <verstretch>0</verstretch>
+                            </sizepolicy>
+                        </property>
+                        <widget class="QWidget">
+                            <property name="name">
+                                <cstring>recipe_page</cstring>
+                            </property>
+                            <attribute name="id">
+                                <number>0</number>
+                            </attribute>
+                            <vbox>
+                                <property name="name">
+                                    <cstring>unnamed</cstring>
+                                </property>
+                                <widget class="QLayoutWidget">
+                                    <property name="name">
+                                        <cstring>layout2</cstring>
+                                    </property>
+                                    <grid>
+                                        <property name="name">
+                                            <cstring>unnamed</cstring>
+                                        </property>
+                                        <widget class="QLineEdit" row="0" column="1">
+                                            <property name="name">
+                                                <cstring>recipe_entry</cstring>
+                                            </property>
+                                            <property name="sizePolicy">
+                                                <sizepolicy>
+                                                    <hsizetype>7</hsizetype>
+                                                    <vsizetype>0</vsizetype>
+                                                    <horstretch>0</horstretch>
+                                                    <verstretch>0</verstretch>
+                                                </sizepolicy>
+                                            </property>
+                                        </widget>
+                                        <widget class="QLineEdit" row="1" column="1">
+                                            <property name="name">
+                                                <cstring>author_entry</cstring>
+                                            </property>
+                                            <property name="sizePolicy">
+                                                <sizepolicy>
+                                                    <hsizetype>7</hsizetype>
+                                                    <vsizetype>0</vsizetype>
+                                                    <horstretch>0</horstretch>
+                                                    <verstretch>0</verstretch>
+                                                </sizepolicy>
+                                            </property>
+                                        </widget>
+                                        <widget class="QLabel" row="0" column="2">
+                                            <property name="name">
+                                                <cstring>textLabel5</cstring>
+                                            </property>
+                                            <property name="text">
+                                                <string>Preparation Time</string>
+                                            </property>
+                                            <property name="alignment">
+                                                <set>AlignVCenter|AlignRight</set>
+                                            </property>
+                                        </widget>
+                                        <widget class="QLabel" row="1" column="2">
+                                            <property name="name">
+                                                <cstring>textLabel6</cstring>
+                                            </property>
+                                            <property name="text">
+                                                <string>Yield</string>
+                                            </property>
+                                            <property name="alignment">
+                                                <set>AlignVCenter|AlignRight</set>
+                                            </property>
+                                        </widget>
+                                        <widget class="QLabel" row="1" column="0">
+                                            <property name="name">
+                                                <cstring>textLabel4</cstring>
+                                            </property>
+                                            <property name="text">
+                                                <string>Recipe Author</string>
+                                            </property>
+                                            <property name="alignment">
+                                                <set>AlignVCenter|AlignRight</set>
+                                            </property>
+                                        </widget>
+                                        <widget class="QLineEdit" row="1" column="3">
+                                            <property name="name">
+                                                <cstring>yields_entry</cstring>
+                                            </property>
+                                            <property name="sizePolicy">
+                                                <sizepolicy>
+                                                    <hsizetype>5</hsizetype>
+                                                    <vsizetype>0</vsizetype>
+                                                    <horstretch>0</horstretch>
+                                                    <verstretch>0</verstretch>
+                                                </sizepolicy>
+                                            </property>
+                                        </widget>
+                                        <widget class="QLineEdit" row="0" column="3">
+                                            <property name="name">
+                                                <cstring>tottime_entry</cstring>
+                                            </property>
+                                            <property name="sizePolicy">
+                                                <sizepolicy>
+                                                    <hsizetype>5</hsizetype>
+                                                    <vsizetype>0</vsizetype>
+                                                    <horstretch>0</horstretch>
+                                                    <verstretch>0</verstretch>
+                                                </sizepolicy>
+                                            </property>
+                                        </widget>
+                                        <widget class="QLabel" row="0" column="0">
+                                            <property name="name">
+                                                <cstring>textLabel3</cstring>
+                                            </property>
+                                            <property name="text">
+                                                <string>Recipe Name</string>
+                                            </property>
+                                            <property name="alignment">
+                                                <set>AlignVCenter|AlignRight</set>
+                                            </property>
+                                        </widget>
+                                    </grid>
+                                </widget>
+                                <widget class="QSplitter">
+                                    <property name="name">
+                                        <cstring>recipe_splitter</cstring>
+                                    </property>
+                                    <property name="orientation">
+                                        <enum>Vertical</enum>
+                                    </property>
+                                    <widget class="QTable">
+                                        <column>
+                                            <property name="text">
+                                                <string>Quantity</string>
+                                            </property>
+                                        </column>
+                                        <column>
+                                            <property name="text">
+                                                <string>Measure</string>
+                                            </property>
+                                        </column>
+                                        <column>
+                                            <property name="text">
+                                                <string>Ingredient</string>
+                                            </property>
+                                        </column>
+                                        <column>
+                                            <property name="text">
+                                                <string>Modifier</string>
+                                            </property>
+                                        </column>
+                                        <property name="name">
+                                            <cstring>ingredients_table</cstring>
+                                        </property>
+                                        <property name="sizePolicy">
+                                            <sizepolicy>
+                                                <hsizetype>7</hsizetype>
+                                                <vsizetype>5</vsizetype>
+                                                <horstretch>0</horstretch>
+                                                <verstretch>0</verstretch>
+                                            </sizepolicy>
+                                        </property>
+                                        <property name="vScrollBarMode">
+                                            <enum>AlwaysOn</enum>
+                                        </property>
+                                        <property name="hScrollBarMode">
+                                            <enum>AlwaysOn</enum>
+                                        </property>
+                                        <property name="numRows">
+                                            <number>0</number>
+                                        </property>
+                                        <property name="numCols">
+                                            <number>4</number>
+                                        </property>
+                                        <property name="rowMovingEnabled">
+                                            <bool>true</bool>
+                                        </property>
+                                        <property name="selectionMode">
+                                            <enum>SingleRow</enum>
+                                        </property>
+                                    </widget>
+                                    <widget class="QTabWidget">
+                                        <property name="name">
+                                            <cstring>editTab</cstring>
+                                        </property>
+                                        <property name="enabled">
+                                            <bool>true</bool>
+                                        </property>
+                                        <property name="sizePolicy">
+                                            <sizepolicy>
+                                                <hsizetype>7</hsizetype>
+                                                <vsizetype>3</vsizetype>
+                                                <horstretch>0</horstretch>
+                                                <verstretch>0</verstretch>
+                                            </sizepolicy>
+                                        </property>
+                                        <property name="tabPosition">
+                                            <enum>Bottom</enum>
+                                        </property>
+                                        <widget class="QWidget">
+                                            <property name="name">
+                                                <cstring>tab</cstring>
+                                            </property>
+                                            <attribute name="title">
+                                                <string>&amp;Directions</string>
+                                            </attribute>
+                                            <hbox>
+                                                <property name="name">
+                                                    <cstring>unnamed</cstring>
+                                                </property>
+                                                <widget class="QTextEdit">
+                                                    <property name="name">
+                                                        <cstring>directions_edit</cstring>
+                                                    </property>
+                                                    <property name="enabled">
+                                                        <bool>true</bool>
+                                                    </property>
+                                                    <property name="textFormat">
+                                                        <enum>PlainText</enum>
+                                                    </property>
+                                                    <property name="wordWrap">
+                                                        <enum>FixedColumnWidth</enum>
+                                                    </property>
+                                                    <property name="wrapColumnOrWidth">
+                                                        <number>72</number>
+                                                    </property>
+                                                    <property name="tabChangesFocus">
+                                                        <bool>true</bool>
+                                                    </property>
+                                                </widget>
+                                            </hbox>
+                                        </widget>
+                                        <widget class="QWidget">
+                                            <property name="name">
+                                                <cstring>tab</cstring>
+                                            </property>
+                                            <attribute name="title">
+                                                <string>&amp;Notes</string>
+                                            </attribute>
+                                            <hbox>
+                                                <property name="name">
+                                                    <cstring>unnamed</cstring>
+                                                </property>
+                                                <widget class="QTextEdit">
+                                                    <property name="name">
+                                                        <cstring>note_edit</cstring>
+                                                    </property>
+                                                    <property name="textFormat">
+                                                        <enum>PlainText</enum>
+                                                    </property>
+                                                    <property name="wordWrap">
+                                                        <enum>FixedColumnWidth</enum>
+                                                    </property>
+                                                    <property name="wrapColumnOrWidth">
+                                                        <number>72</number>
+                                                    </property>
+                                                    <property name="tabChangesFocus">
+                                                        <bool>true</bool>
+                                                    </property>
+                                                </widget>
+                                            </hbox>
+                                        </widget>
+                                    </widget>
+                                </widget>
+                            </vbox>
+                        </widget>
+                    </widget>
+                </vbox>
+            </widget>
+        </widget>
+    </vbox>
+</widget>
+<menubar>
+    <property name="name">
+        <cstring>MenuBar</cstring>
+    </property>
+    <item text="&amp;File" name="fileMenu">
+        <separator/>
+        <action name="fileExitAction"/>
+    </item>
+    <item text="&amp;Edit" name="unnamed">
+        <action name="editAdd_CookbookAction"/>
+        <action name="editAdd_CategoryAction"/>
+        <action name="editAdd_RecipeAction"/>
+        <action name="editAdd_IngredientAction"/>
+        <separator/>
+        <action name="editDeleteAction"/>
+    </item>
+    <item text="&amp;Help" name="helpMenu">
+        <action name="helpAboutAction"/>
+    </item>
+</menubar>
+<toolbars>
+</toolbars>
+<actions>
+    <action>
+        <property name="name">
+            <cstring>fileNewAction</cstring>
+        </property>
+        <property name="iconSet">
+            <iconset>image1</iconset>
+        </property>
+        <property name="text">
+            <string>New</string>
+        </property>
+        <property name="menuText">
+            <string>&amp;New</string>
+        </property>
+        <property name="accel">
+            <string>Ctrl+N</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>fileOpenAction</cstring>
+        </property>
+        <property name="iconSet">
+            <iconset>image2</iconset>
+        </property>
+        <property name="text">
+            <string>Open</string>
+        </property>
+        <property name="menuText">
+            <string>&amp;Open...</string>
+        </property>
+        <property name="accel">
+            <string>Ctrl+O</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>fileSaveAsAction</cstring>
+        </property>
+        <property name="text">
+            <string>Save As</string>
+        </property>
+        <property name="menuText">
+            <string>Save &amp;As...</string>
+        </property>
+        <property name="accel">
+            <string></string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>fileExitAction</cstring>
+        </property>
+        <property name="text">
+            <string>Exit</string>
+        </property>
+        <property name="menuText">
+            <string>E&amp;xit</string>
+        </property>
+        <property name="accel">
+            <string></string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>helpAboutAction</cstring>
+        </property>
+        <property name="text">
+            <string>&amp;About</string>
+        </property>
+        <property name="menuText">
+            <string>&amp;About</string>
+        </property>
+        <property name="accel">
+            <string></string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>editAdd_CookbookAction</cstring>
+        </property>
+        <property name="text">
+            <string>Add C&amp;ookbook</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>editAdd_CategoryAction</cstring>
+        </property>
+        <property name="enabled">
+            <bool>false</bool>
+        </property>
+        <property name="text">
+            <string>Add C&amp;ategory</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>editAdd_RecipeAction</cstring>
+        </property>
+        <property name="enabled">
+            <bool>false</bool>
+        </property>
+        <property name="text">
+            <string>Add &amp;Recipe</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>editAdd_IngredientAction</cstring>
+        </property>
+        <property name="enabled">
+            <bool>false</bool>
+        </property>
+        <property name="text">
+            <string>Add &amp;Ingredient</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>editDeleteAction</cstring>
+        </property>
+        <property name="enabled">
+            <bool>false</bool>
+        </property>
+        <property name="text">
+            <string>&amp;Delete</string>
+        </property>
+    </action>
+</actions>
+<images>
+    <image name="image0">
+        <data format="XPM.GZ" length="1452">789c7594dd6e13311085eff314abcc5d845ad20205211e01c42512e2c21e7bfc6f4b502e10e2dd39e36cd34dd59e36cd9eec97b13d67b6d787e5dbd7cfcbe17af7ebdedc275e389a9fcbc1fd6eedcff71f9ffeeef6b7370b7e8f77cb71ff6ab7bf5a78f932bad76bc235bd9e526bd41ea7d406b537536abbdadb29b543ed9b29b555eddb29b556edbb29b5acf66e4aad53fb7e4aad57fb614aada835536a8b5a3ba536aae529b549ad9b529bd5fa29b54dad4ccdb39f455b9d3fdd32f8dc58761e5ff5121ea90d4314a2381f534a19afc2869e3244d59b0a24372827c765ad74668862a7c10284a489cda95477821e1822674db728d39aa126e46289d65d32954dafec2356aad41af558bc8fb3d0ca10356346b5be60ad4cbe616930be6f196b4d18c3b22844b60d2a22258e2de383191d85d09d98c9a6414e24bab865a20fbdf7810ea243c4c50df1c54bdb32e21cdb5aabf78c4a3853f14eb0ff2dc38c140a3a8cdb09ad462b41a40da31186e1d040dcc97966d170e5f9cc80e053d61d63c4220ee353bb59e33f31163f3a74f813cc3a1a7a35086e6532ba1ceae8c1f48ea108c043c041c5e8aed73a9d6bb5554f0fb23a0f83f75a020b9df7236c71f481c43cce9e8aeec9398cc2c35a57ca3840cc082c2669b128e695d96481af31ba5c0ada274d41bc977a9117ee6315d1496d82eee51ca314bb659cc54e0455b47f98c1223ea1105f321ab962599f0b5d51d7ba9c8daa73010469c53c0b3967b7738810e6e12db378e71440c692e26316571a84ee9975e6754fb1949c90e1e88f8cf3e7471829e814ccd8780ed0ca844ecf2a7bdacecf4bba784e9f079efcdf7849fb7f1f77ff0148de81f6</data>
+    </image>
+    <image name="image1">
+        <data format="XPM.GZ" length="721">789cedd2b10ac2301405d03d5ff148b62056035241fc04c5511087f425a2432b681d44fc777ba329d6b47fe07d19dee50cc9904cd376b3229d896b6deb13131fed85b4bb95e57db75f3e8434869a93d3548e841c13d3fa5c79ecaad9d52404b540351e83caa833c6a03ad4798e41f5a86c30a816f510126ee94d14d52611fb8e2ad49070a4445ca4447ca4446ca444da07fecac7ffd2956ebe64f81ff4c873215e0583a9b0</data>
+    </image>
+    <image name="image2">
+        <data format="XPM.GZ" length="691">789cad914d0ac2301085f739c5d0d915b11a140ae211149782b898448b2e5a41eb42c4bb9b9fa6a67644045f0299978f37134896c27ab5803413979aeaa3067da033a4bb6b59de36dbf95d245282d953182703910c41c3f254ed6d8da6c69193b5dada7c924b6fc9dac2c85b156c51b83eacfe41d0c89defc4dfa2dd7c37fc44b025a179043c4152a4b055f4365414ad0e8901fd94c1ae5e19441da9211c68e7f44098d3074d86019e70a0210c089958df7ffb31134fa13797a8</data>
+    </image>
+</images>
+<connections>
+    <connection>
+        <sender>fileOpenAction</sender>
+        <signal>activated()</signal>
+        <receiver>Neelix</receiver>
+        <slot>fileOpen()</slot>
+    </connection>
+    <connection>
+        <sender>fileSaveAsAction</sender>
+        <signal>activated()</signal>
+        <receiver>Neelix</receiver>
+        <slot>fileSaveAs()</slot>
+    </connection>
+    <connection>
+        <sender>fileExitAction</sender>
+        <signal>activated()</signal>
+        <receiver>Neelix</receiver>
+        <slot>close()</slot>
+    </connection>
+    <connection>
+        <sender>helpAboutAction</sender>
+        <signal>activated()</signal>
+        <receiver>Neelix</receiver>
+        <slot>helpAbout()</slot>
+    </connection>
+    <connection>
+        <sender>shelf</sender>
+        <signal>currentChanged(QListViewItem*)</signal>
+        <receiver>Neelix</receiver>
+        <slot>shelf_currentChanged()</slot>
+    </connection>
+    <connection>
+        <sender>shelf</sender>
+        <signal>itemRenamed(QListViewItem*,int,const QString&amp;)</signal>
+        <receiver>Neelix</receiver>
+        <slot>shelf_item_renamed(QListViewItem*,int,const QString&amp;)</slot>
+    </connection>
+    <connection>
+        <sender>directions_edit</sender>
+        <signal>textChanged()</signal>
+        <receiver>Neelix</receiver>
+        <slot>directions_changed()</slot>
+    </connection>
+    <connection>
+        <sender>note_edit</sender>
+        <signal>textChanged()</signal>
+        <receiver>Neelix</receiver>
+        <slot>note_changed()</slot>
+    </connection>
+    <connection>
+        <sender>recipe_entry</sender>
+        <signal>textChanged(const QString&amp;)</signal>
+        <receiver>Neelix</receiver>
+        <slot>recipename_changed(const QString&amp;)</slot>
+    </connection>
+    <connection>
+        <sender>tottime_entry</sender>
+        <signal>textChanged(const QString&amp;)</signal>
+        <receiver>Neelix</receiver>
+        <slot>tottime_changed(const QString&amp;)</slot>
+    </connection>
+    <connection>
+        <sender>author_entry</sender>
+        <signal>textChanged(const QString&amp;)</signal>
+        <receiver>Neelix</receiver>
+        <slot>author_changed(const QString&amp;)</slot>
+    </connection>
+    <connection>
+        <sender>yields_entry</sender>
+        <signal>textChanged(const QString&amp;)</signal>
+        <receiver>Neelix</receiver>
+        <slot>yields_changed(const QString&amp;)</slot>
+    </connection>
+    <connection>
+        <sender>ingredients_table</sender>
+        <signal>valueChanged(int,int)</signal>
+        <receiver>Neelix</receiver>
+        <slot>ingredient_changed(int,int)</slot>
+    </connection>
+    <connection>
+        <sender>editDeleteAction</sender>
+        <signal>activated()</signal>
+        <receiver>Neelix</receiver>
+        <slot>editDelete()</slot>
+    </connection>
+    <connection>
+        <sender>editAdd_CookbookAction</sender>
+        <signal>activated()</signal>
+        <receiver>Neelix</receiver>
+        <slot>editAdd_Cookbook()</slot>
+    </connection>
+    <connection>
+        <sender>editAdd_CategoryAction</sender>
+        <signal>activated()</signal>
+        <receiver>Neelix</receiver>
+        <slot>editAdd_Category()</slot>
+    </connection>
+    <connection>
+        <sender>editAdd_RecipeAction</sender>
+        <signal>activated()</signal>
+        <receiver>Neelix</receiver>
+        <slot>editAdd_Recipe()</slot>
+    </connection>
+    <connection>
+        <sender>editAdd_IngredientAction</sender>
+        <signal>activated()</signal>
+        <receiver>Neelix</receiver>
+        <slot>editAdd_Ingredient()</slot>
+    </connection>
+    <connection>
+        <sender>fileNewAction</sender>
+        <signal>activated()</signal>
+        <receiver>Neelix</receiver>
+        <slot>fileNew()</slot>
+    </connection>
+</connections>
+<tabstops>
+    <tabstop>shelf</tabstop>
+    <tabstop>recipe_entry</tabstop>
+    <tabstop>author_entry</tabstop>
+    <tabstop>tottime_entry</tabstop>
+    <tabstop>yields_entry</tabstop>
+    <tabstop>ingredients_table</tabstop>
+    <tabstop>directions_edit</tabstop>
+    <tabstop>note_edit</tabstop>
+    <tabstop>editTab</tabstop>
+</tabstops>
+<slots>
+    <slot>recipename_changed(const QString&amp;)</slot>
+    <slot>fileOpen()</slot>
+    <slot>fileSaveAs()</slot>
+    <slot>shelf_item_renamed(QListViewItem * item, int col, const QString &amp; text)</slot>
+    <slot>helpAbout()</slot>
+    <slot>shelf_currentChanged()</slot>
+    <slot>tottime_changed(const QString&amp;)</slot>
+    <slot>ingredient_changed(int,int)</slot>
+    <slot>yields_changed(const QString&amp;)</slot>
+    <slot>directions_changed()</slot>
+    <slot>note_changed(const QString&amp;)</slot>
+    <slot>editDelete()</slot>
+    <slot>note_changed()</slot>
+    <slot>editAdd_Category()</slot>
+    <slot>editAdd_Cookbook()</slot>
+    <slot>editAdd_Ingredient()</slot>
+    <slot>editAdd_Recipe()</slot>
+    <slot>author_changed(const QString&amp;)</slot>
+    <slot>fileNew()</slot>
+    <slot>shelf_selectionChanged()</slot>
+</slots>
+<layoutdefaults spacing="6" margin="11"/>
+</UI>
