@@ -14,3 +14,10 @@ task :db  do |t|
   sh "rm -f test/test.db"
   sh "sqlite3 test/test.db < data/create.sql"
 end
+
+desc 'rbuic'
+task :ui do
+  sh 'make -C lib/neelix/view/qt'
+end
+
+# vim: filetype=ruby
