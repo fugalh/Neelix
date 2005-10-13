@@ -1,0 +1,16 @@
+#!/usr/bin/ruby
+require 'neelix'
+require 'neelix/view/qt'
+
+ActiveRecord::Base.establish_connection({
+  "adapter" => "sqlite3", 
+  "dbfile" => ENV['HOME']+"/neelix.db"
+})
+
+if $0 == __FILE__
+  a = Qt::Application.new(ARGV)
+  w = Neelix.new
+  a.mainWidget = w
+  w.show
+  a.exec
+end
