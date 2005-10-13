@@ -1,4 +1,4 @@
-<!DOCTYPE UI><UI version="3.2" stdsetdef="1">
+<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
 <class>AboutDialog</class>
 <widget class="QDialog">
     <property name="name">
@@ -11,8 +11,8 @@
         <rect>
             <x>0</x>
             <y>0</y>
-            <width>256</width>
-            <height>245</height>
+            <width>302</width>
+            <height>276</height>
         </rect>
     </property>
     <property name="caption">
@@ -29,7 +29,7 @@
             <property name="text">
                 <string>&lt;center&gt;&lt;h1&gt;Neelix &lt;/h1&gt;
 &lt;h2&gt;Recipe Management System&lt;/h2&gt;
-&lt;p&gt;&lt;a href="http://neelix.sf.net/"&gt;http://neelix.sf.net/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://neelix.rubyforge.org/"&gt;http://neelix.rubyforge.org/&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;font size="-1"&gt;Dedicated to Erin Fugal&lt;/font&gt;&lt;/p&gt;&lt;/center&gt;</string>
             </property>
             <property name="alignment">

@@ -236,7 +236,7 @@
                                                 <property name="minimumSize">
                                                     <size>
                                                         <width>20</width>
-                                                        <height>0</height>
+                                                        <height>20</height>
                                                     </size>
                                                 </property>
                                                 <property name="text">
@@ -249,6 +249,12 @@
                                             <widget class="QToolButton">
                                                 <property name="name">
                                                     <cstring>rm_ingredient</cstring>
+                                                </property>
+                                                <property name="minimumSize">
+                                                    <size>
+                                                        <width>20</width>
+                                                        <height>20</height>
+                                                    </size>
                                                 </property>
                                                 <property name="text">
                                                     <string>-</string>
@@ -414,7 +420,7 @@
                     <property name="minimumSize">
                         <size>
                             <width>20</width>
-                            <height>0</height>
+                            <height>20</height>
                         </size>
                     </property>
                     <property name="text">
@@ -428,7 +434,7 @@
                     <property name="minimumSize">
                         <size>
                             <width>20</width>
-                            <height>0</height>
+                            <height>20</height>
                         </size>
                     </property>
                     <property name="text">
@@ -610,13 +616,13 @@
 </actions>
 <images>
     <image name="image0">
-        <data format="PNG" length="926">89504e470d0a1a0a0000000d4948445200000020000000200806000000737a7af400000365494441545885b557cb91e32a143d9e9a04e81048815ef59a0ec11d8214020a410ec18420a5a0352b93c20dc184e0b7e839bc0b96dbaea9f76e15651901e7dc3f3aa494f08a7c7c7cdc5e5aa824a57478b6e6f08c800636c6e0783cc218d30c4a2905c6184cd304117989c88f04086eadc5b22c101188088c3170ce35e0c6189452ea7f11c1b66d8831a294f290c4af67e0c7e31121047c7e7e625dd706dc18036b2dacb5f599a472ce008065599af35e22c0c597cb052282711ce19cab007a1c0e07aceb0a0058d715d334555779ef1163c43ccf0f49dc11e0a2799e1163848854700e005553630cbebebeeafe1863353b008410202295c44b16381e8f28a5605dd7c6c414fdecbd6ff6d112949c339c73755d6f8586005f2ecb82186303468d4a297500c0f97cae9a6bd05e48e4a9058661c0388ebbe02282524afd65da69506aaadf5b6befb2e62101e71cb66d03f09d7ebde64cc59c732542d1b9afad608cc1b66dbb71f07b8f400801a7d3a90127210da6c18d3110916a0192b7d622e75cadf094000f1e86e1cedf1a80e615115c2e973ae7bd8773ae7113abe79edc11a0e97affe9f41391a626702d9fb5b604e69e87049801a7d3a99ad05a0bef7db5000f2378ef021d94fa7d2905dbb635314239a4949adca4fff7c439d7f89165991af601c9a1e729b537fc6946b761186efad718d30c3d67adad738f46bfce7b5fe7b926a5f4af0be6796e7c49ed7420d2bf149d1dbd3b285c3f0c0372ceb85eafdfa63f7c1ba012600fa7dff5413d31ed6f5d64b66dabef7ac2dc374d53e3c64a80a53484d068a735d4ed576babdb715f3575501a63eee2eb3703a26f12d6da7af928a554d6ba2b1220e75c1b18d7f459d00b83f0573fc14369be5e436acf94d2a9a5af687abf3e4f63352ed0d2fb9c87f720c0776ab2fd6aab79ef1b0bea33ee5cd083f71b7acdb4562ccfcc797d068b585fa47e24d013d1a59464784b62d45374a5ecd397b1f2948036595fbffb34d48149d2ba09115044300c436df35aeab59c59c0769c736ea258bb411728fedf23c062c6f5efefef159881d85880e61dc7112184bbfeaf8b8eb5b6b9b8706f4f32c6582fad8c89c61529a5da0fe679be9dcfe71f6b3cba5a6fad6de61ff58910c28d823f7d20a5d412b0d6de9c732f11f89b71bd5eab82c46d5cb0d7afff4b797b7bbb9bdbfd36fc9b2fe15764effbf0e9d7f1ff2dff001d2c2670ad1213910000000049454e44ae426082</data>
+        <data format="PNG" length="926">89504e470d0a1a0a0000000d4948445200000020000000200806000000737a7af40000036549444154789cb557cb91e32a143d9e9a04e81048815ef59a0ec11d8214020a410ec18420a5a0352b93c20dc184e0b7e839bc0b96dbaea9f76e15651901e7dc3f3aa494f08a7c7c7cdc5e5aa824a57478b6e6f08c800636c6e0783cc218d30c4a2905c6184cd304117989c88f04086eadc5b22c101188088c3170ce35e0c6189452ea7f11c1b66d8831a294f290c4af67e0c7e31121047c7e7e625dd706dc18036b2dacb5f599a472ce008065599af35e22c0c597cb052282711ce19cab007a1c0e07aceb0a0058d715d334555779ef1163c43ccf0f49dc11e0a2799e1163848854700e005553630cbebebeeafe1863353b008410202295c44b16381e8f28a5605dd7c6c414fdecbd6ff6d112949c339c73755d6f8586005f2ecb82186303468d4a297500c0f97cae9a6bd05e48e4a9058661c0388ebbe02282524afd65da69506aaadf5b6befb2e62101e71cb66d03f09d7ebde64cc59c732542d1b9afad608cc1b66dbb71f07b8f400801a7d3a90127210da6c18d3110916a0192b7d622e75cadf094000f1e86e1cedf1a80e615115c2e973ae7bd8773ae7113abe79edc11a0e97affe9f41391a626702d9fb5b604e69e87049801a7d3a99ad05a0bef7db5000f2378ef021d94fa7d2905dbb635314239a4949adca4fff7c439d7f89165991af601c9a1e729b537fc6946b761186efad718d30c3d67adad738f46bfce7b5fe7b926a5f4af0be6796e7c49ed7420d2bf149d1dbd3b285c3f0c0372ceb85eafdfa63f7c1ba012600fa7dff5413d31ed6f5d64b66dabef7ac2dc374d53e3c64a80a53484d068a735d4ed576babdb715f3575501a63eee2eb3703a26f12d6da7af928a554d6ba2b1220e75c1b18d7f459d00b83f0573fc14369be5e436acf94d2a9a5af687abf3e4f63352ed0d2fb9c87f720c0776ab2fd6aab79ef1b0bea33ee5cd083f71b7acdb4562ccfcc797d068b585fa47e24d013d1a59464784b62d45374a5ecd397b1f2948036595fbffb34d48149d2ba09115044300c436df35aeab59c59c0769c736ea258bb411728fedf23c062c6f5efefef159881d85880e61dc7112184bbfeaf8b8eb5b6b9b8706f4f32c6582fad8c89c61529a5da0fe679be9dcfe71f6b3cba5a6fad6de61ff58910c28d823f7d20a5d412b0d6de9c732f11f89b71bd5eab82c46d5cb0d7afff4b797b7bbb9bdbfd36fc9b2fe15764effbf0e9d7f1ff2dff001d2c26701c2c91270000000049454e44ae426082</data>
     </image>
     <image name="image1">
-        <data format="PNG" length="184">89504e470d0a1a0a0000000d4948445200000016000000160806000000c4b46c3b0000007f49444154388ded95510a0021084475d9db041ec0e8fa5ecbfdda852d4b11fa6b2028a3570c53a188c00edd7d819935b2504470357f5945559d36000022720f60823d11910b1fac88a894f2f599592d5b52e05aeb6f6cc153e0d6da50ebe12930e2321039f09b0c6fb3542a223ae0033ee085cc2b1d790b3ce1ae3f6f9b150f6d5433af47a4f4c20000000049454e44ae426082</data>
+        <data format="PNG" length="184">89504e470d0a1a0a0000000d4948445200000016000000160806000000c4b46c3b0000007f49444154789ced95510a0021084475d9db041ec0e8fa5ecbfdda852d4b11fa6b2028a3570c53a188c00edd7d819935b2504470357f5945559d36000022720f60823d11910b1fac88a894f2f599592d5b52e05aeb6f6cc153e0d6da50ebe12930e2321039f09b0c6fb3542a223ae0033ee085cc2b1d790b3ce1ae3f6f9b150f6d5433af8c7fa5080000000049454e44ae426082</data>
     </image>
     <image name="image2">
-        <data format="PNG" length="231">89504e470d0a1a0a0000000d4948445200000016000000160806000000c4b46c3b000000ae49444154388db594510ec3200c436db45371b6691fd3cee66bb18f5135a219235af04f442b5e2c03a124ec50d942dd09be4537d45a9b5d4be2f85f1243e06393d748126d53661d9e854a624ac6633c40cff8576e51280010406b0d00dab104b9c69d19e887774201f64ebc7c8f342fc678b0ce553cc76b752e37e368d69edc8c2df4f58c01ef8f4f7533fe176a1e482ef4e2380b6ac0b9d0d36a57161430833e130aacdef62f9acd8ab4793cea0d051970cdbc4f01b20000000049454e44ae426082</data>
+        <data format="PNG" length="231">89504e470d0a1a0a0000000d4948445200000016000000160806000000c4b46c3b000000ae49444154789cb594510ec3200c436db45371b6691fd3cee66bb18f5135a219235af04f442b5e2c03a124ec50d942dd09be4537d45a9b5d4be2f85f1243e06393d748126d53661d9e854a624ac6633c40cff8576e51280010406b0d00dab104b9c69d19e887774201f64ebc7c8f342fc678b0ce553cc76b752e37e368d69edc8c2df4f58c01ef8f4f7533fe176a1e482ef4e2380b6ac0b9d0d36a57161430833e130aacdef62f9acd8ab4793cea0d051970cd5b32cc0a0000000049454e44ae426082</data>
     </image>
 </images>
 <connections>
