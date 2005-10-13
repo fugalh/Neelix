@@ -1,4 +1,4 @@
-<!DOCTYPE UI><UI version="3.2" stdsetdef="1">
+<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
 <class>Neelix</class>
 <widget class="QMainWindow">
     <property name="name">
@@ -8,8 +8,8 @@
         <rect>
             <x>0</x>
             <y>0</y>
-            <width>747</width>
-            <height>543</height>
+            <width>714</width>
+            <height>553</height>
         </rect>
     </property>
     <property name="caption">
@@ -47,14 +47,6 @@
                 </column>
                 <property name="name">
                     <cstring>shelf</cstring>
-                </property>
-                <property name="sizePolicy">
-                    <sizepolicy>
-                        <hsizetype>5</hsizetype>
-                        <vsizetype>7</vsizetype>
-                        <horstretch>0</horstretch>
-                        <verstretch>0</verstretch>
-                    </sizepolicy>
                 </property>
                 <property name="rootIsDecorated">
                     <bool>true</bool>
@@ -205,61 +197,120 @@
                                 </widget>
                                 <widget class="QSplitter">
                                     <property name="name">
-                                        <cstring>recipe_splitter</cstring>
+                                        <cstring>splitter10</cstring>
                                     </property>
                                     <property name="orientation">
                                         <enum>Vertical</enum>
                                     </property>
-                                    <widget class="QTable">
-                                        <column>
-                                            <property name="text">
-                                                <string>Quantity</string>
-                                            </property>
-                                        </column>
-                                        <column>
-                                            <property name="text">
-                                                <string>Measure</string>
-                                            </property>
-                                        </column>
-                                        <column>
-                                            <property name="text">
-                                                <string>Ingredient</string>
-                                            </property>
-                                        </column>
-                                        <column>
-                                            <property name="text">
-                                                <string>Modifier</string>
-                                            </property>
-                                        </column>
+                                    <widget class="QLayoutWidget">
                                         <property name="name">
-                                            <cstring>ingredients_table</cstring>
+                                            <cstring>layout12</cstring>
                                         </property>
-                                        <property name="sizePolicy">
-                                            <sizepolicy>
-                                                <hsizetype>7</hsizetype>
-                                                <vsizetype>5</vsizetype>
-                                                <horstretch>0</horstretch>
-                                                <verstretch>0</verstretch>
-                                            </sizepolicy>
-                                        </property>
-                                        <property name="vScrollBarMode">
-                                            <enum>AlwaysOn</enum>
-                                        </property>
-                                        <property name="hScrollBarMode">
-                                            <enum>AlwaysOn</enum>
-                                        </property>
-                                        <property name="numRows">
-                                            <number>0</number>
-                                        </property>
-                                        <property name="numCols">
-                                            <number>4</number>
-                                        </property>
-                                        <property name="rowMovingEnabled">
-                                            <bool>true</bool>
-                                        </property>
-                                        <property name="selectionMode">
-                                            <enum>SingleRow</enum>
-                                        </property>
+                                        <hbox>
+                                            <property name="name">
+                                                <cstring>unnamed</cstring>
+                                            </property>
+                                            <widget class="QLayoutWidget">
+                                                <property name="name">
+                                                    <cstring>layout11</cstring>
+                                                </property>
+                                                <vbox>
+                                                    <property name="name">
+                                                        <cstring>unnamed</cstring>
+                                                    </property>
+                                                    <spacer>
+                                                        <property name="name">
+                                                            <cstring>spacer5</cstring>
+                                                        </property>
+                                                        <property name="orientation">
+                                                            <enum>Vertical</enum>
+                                                        </property>
+                                                        <property name="sizeType">
+                                                            <enum>Expanding</enum>
+                                                        </property>
+                                                        <property name="sizeHint">
+                                                            <size>
+                                                                <width>20</width>
+                                                                <height>140</height>
+                                                            </size>
+                                                        </property>
+                                                    </spacer>
+                                                    <widget class="QToolButton">
+                                                        <property name="name">
+                                                            <cstring>addIngredient</cstring>
+                                                        </property>
+                                                        <property name="text">
+                                                            <string>+</string>
+                                                        </property>
+                                                        <property name="toolTip" stdset="0">
+                                                            <string>Add a new Ingredient</string>
+                                                        </property>
+                                                    </widget>
+                                                    <widget class="QToolButton">
+                                                        <property name="name">
+                                                            <cstring>rmIngredient</cstring>
+                                                        </property>
+                                                        <property name="text">
+                                                            <string>-</string>
+                                                        </property>
+                                                        <property name="toolTip" stdset="0">
+                                                            <string>Delete this Ingredient</string>
+                                                        </property>
+                                                    </widget>
+                                                </vbox>
+                                            </widget>
+                                            <widget class="QTable">
+                                                <column>
+                                                    <property name="text">
+                                                        <string>Quantity</string>
+                                                    </property>
+                                                </column>
+                                                <column>
+                                                    <property name="text">
+                                                        <string>Measure</string>
+                                                    </property>
+                                                </column>
+                                                <column>
+                                                    <property name="text">
+                                                        <string>Ingredient</string>
+                                                    </property>
+                                                </column>
+                                                <column>
+                                                    <property name="text">
+                                                        <string>Modifier</string>
+                                                    </property>
+                                                </column>
+                                                <property name="name">
+                                                    <cstring>ingredients_table</cstring>
+                                                </property>
+                                                <property name="sizePolicy">
+                                                    <sizepolicy>
+                                                        <hsizetype>7</hsizetype>
+                                                        <vsizetype>3</vsizetype>
+                                                        <horstretch>0</horstretch>
+                                                        <verstretch>0</verstretch>
+                                                    </sizepolicy>
+                                                </property>
+                                                <property name="vScrollBarMode">
+                                                    <enum>AlwaysOn</enum>
+                                                </property>
+                                                <property name="hScrollBarMode">
+                                                    <enum>AlwaysOn</enum>
+                                                </property>
+                                                <property name="numRows">
+                                                    <number>0</number>
+                                                </property>
+                                                <property name="numCols">
+                                                    <number>4</number>
+                                                </property>
+                                                <property name="rowMovingEnabled">
+                                                    <bool>true</bool>
+                                                </property>
+                                                <property name="selectionMode">
+                                                    <enum>SingleRow</enum>
+                                                </property>
+                                            </widget>
+                                        </hbox>
                                     </widget>
                                     <widget class="QTabWidget">
                                         <property name="name">
@@ -458,6 +509,9 @@
         <property name="text">
             <string>Add C&amp;ookbook</string>
         </property>
+        <property name="menuText">
+            <string>Add C&amp;ookbook</string>
+        </property>
     </action>
     <action>
         <property name="name">
@@ -467,6 +521,9 @@
             <bool>false</bool>
         </property>
         <property name="text">
+            <string>Add C&amp;ategory</string>
+        </property>
+        <property name="menuText">
             <string>Add C&amp;ategory</string>
         </property>
     </action>
@@ -480,6 +537,9 @@
         <property name="text">
             <string>Add &amp;Recipe</string>
         </property>
+        <property name="menuText">
+            <string>Add &amp;Recipe</string>
+        </property>
     </action>
     <action>
         <property name="name">
@@ -489,6 +549,9 @@
             <bool>false</bool>
         </property>
         <property name="text">
+            <string>Add &amp;Ingredient</string>
+        </property>
+        <property name="menuText">
             <string>Add &amp;Ingredient</string>
         </property>
     </action>
@@ -502,17 +565,20 @@
         <property name="text">
             <string>&amp;Delete</string>
         </property>
+        <property name="menuText">
+            <string>&amp;Delete</string>
+        </property>
     </action>
 </actions>
 <images>
     <image name="image0">
-        <data format="XPM.GZ" length="1452">789c7594dd6e13311085eff314abcc5d845ad20205211e01c42512e2c21e7bfc6f4b502e10e2dd39e36cd34dd59e36cd9eec97b13d67b6d787e5dbd7cfcbe17af7ebdedc275e389a9fcbc1fd6eedcff71f9ffeeef6b7370b7e8f77cb71ff6ab7bf5a78f932bad76bc235bd9e526bd41ea7d406b537536abbdadb29b543ed9b29b555eddb29b556edbb29b5acf66e4aad53fb7e4aad57fb614aada835536a8b5a3ba536aae529b549ad9b529bd5fa29b54dad4ccdb39f455b9d3fdd32f8dc58761e5ff5121ea90d4314a2381f534a19afc2869e3244d59b0a24372827c765ad74668862a7c10284a489cda95477821e1822674db728d39aa126e46289d65d32954dafec2356aad41af558bc8fb3d0ca10356346b5be60ad4cbe616930be6f196b4d18c3b22844b60d2a22258e2de383191d85d09d98c9a6414e24bab865a20fbdf7810ea243c4c50df1c54bdb32e21cdb5aabf78c4a3853f14eb0ff2dc38c140a3a8cdb09ad462b41a40da31186e1d040dcc97966d170e5f9cc80e053d61d63c4220ee353bb59e33f31163f3a74f813cc3a1a7a35086e6532ba1ceae8c1f48ea108c043c041c5e8aed73a9d6bb5554f0fb23a0f83f75a020b9df7236c71f481c43cce9e8aeec9398cc2c35a57ca3840cc082c2669b128e695d96481af31ba5c0ada274d41bc977a9117ee6315d1496d82eee51ca314bb659cc54e0455b47f98c1223ea1105f321ab962599f0b5d51d7ba9c8daa73010469c53c0b3967b7738810e6e12db378e71440c692e26316571a84ee9975e6754fb1949c90e1e88f8cf3e7471829e814ccd8780ed0ca844ecf2a7bdacecf4bba784e9f079efcdf7849fb7f1f77ff0148de81f6</data>
+        <data format="PNG" length="926">89504e470d0a1a0a0000000d4948445200000020000000200806000000737a7af400000365494441545885b557cb91e32a143d9e9a04e81048815ef59a0ec11d8214020a410ec18420a5a0352b93c20dc184e0b7e839bc0b96dbaea9f76e15651901e7dc3f3aa494f08a7c7c7cdc5e5aa824a57478b6e6f08c800636c6e0783cc218d30c4a2905c6184cd304117989c88f04086eadc5b22c101188088c3170ce35e0c6189452ea7f11c1b66d8831a294f290c4af67e0c7e31121047c7e7e625dd706dc18036b2dacb5f599a472ce008065599af35e22c0c597cb052282711ce19cab007a1c0e07aceb0a0058d715d334555779ef1163c43ccf0f49dc11e0a2799e1163848854700e005553630cbebebeeafe1863353b008410202295c44b16381e8f28a5605dd7c6c414fdecbd6ff6d112949c339c73755d6f8586005f2ecb82186303468d4a297500c0f97cae9a6bd05e48e4a9058661c0388ebbe02282524afd65da69506aaadf5b6befb2e62101e71cb66d03f09d7ebde64cc59c732542d1b9afad608cc1b66dbb71f07b8f400801a7d3a90127210da6c18d3110916a0192b7d622e75cadf094000f1e86e1cedf1a80e615115c2e973ae7bd8773ae7113abe79edc11a0e97affe9f41391a626702d9fb5b604e69e87049801a7d3a99ad05a0bef7db5000f2378ef021d94fa7d2905dbb635314239a4949adca4fff7c439d7f89165991af601c9a1e729b537fc6946b761186efad718d30c3d67adad738f46bfce7b5fe7b926a5f4af0be6796e7c49ed7420d2bf149d1dbd3b285c3f0c0372ceb85eafdfa63f7c1ba012600fa7dff5413d31ed6f5d64b66dabef7ac2dc374d53e3c64a80a53484d068a735d4ed576babdb715f3575501a63eee2eb3703a26f12d6da7af928a554d6ba2b1220e75c1b18d7f459d00b83f0573fc14369be5e436acf94d2a9a5af687abf3e4f63352ed0d2fb9c87f720c0776ab2fd6aab79ef1b0bea33ee5cd083f71b7acdb4562ccfcc797d068b585fa47e24d013d1a59464784b62d45374a5ecd397b1f2948036595fbffb34d48149d2ba09115044300c436df35aeab59c59c0769c736ea258bb411728fedf23c062c6f5efefef159881d85880e61dc7112184bbfeaf8b8eb5b6b9b8706f4f32c6582fad8c89c61529a5da0fe679be9dcfe71f6b3cba5a6fad6de61ff58910c28d823f7d20a5d412b0d6de9c732f11f89b71bd5eab82c46d5cb0d7afff4b797b7bbb9bdbfd36fc9b2fe15764effbf0e9d7f1ff2dff001d2c2670ad1213910000000049454e44ae426082</data>
     </image>
     <image name="image1">
-        <data format="XPM.GZ" length="721">789cedd2b10ac2301405d03d5ff148b62056035241fc04c5511087f425a2432b681d44fc777ba329d6b47fe07d19dee50cc9904cd376b3229d896b6deb13131fed85b4bb95e57db75f3e8434869a93d3548e841c13d3fa5c79ecaad9d52404b540351e83caa833c6a03ad4798e41f5a86c30a816f510126ee94d14d52611fb8e2ad49070a4445ca4447ca4446ca444da07fecac7ffd2956ebe64f81ff4c873215e0583a9b0</data>
+        <data format="PNG" length="184">89504e470d0a1a0a0000000d4948445200000016000000160806000000c4b46c3b0000007f49444154388ded95510a0021084475d9db041ec0e8fa5ecbfdda852d4b11fa6b2028a3570c53a188c00edd7d819935b2504470357f5945559d36000022720f60823d11910b1fac88a894f2f599592d5b52e05aeb6f6cc153e0d6da50ebe12930e2321039f09b0c6fb3542a223ae0033ee085cc2b1d790b3ce1ae3f6f9b150f6d5433af47a4f4c20000000049454e44ae426082</data>
     </image>
     <image name="image2">
-        <data format="XPM.GZ" length="691">789cad914d0ac2301085f739c5d0d915b11a140ae211149782b898448b2e5a41eb42c4bb9b9fa6a67644045f0299978f37134896c27ab5803413979aeaa3067da033a4bb6b59de36dbf95d245282d953182703910c41c3f254ed6d8da6c69193b5dada7c924b6fc9dac2c85b156c51b83eacfe41d0c89defc4dfa2dd7c37fc44b025a179043c4152a4b055f4365414ad0e8901fd94c1ae5e19441da9211c68e7f44098d3074d86019e70a0210c089958df7ffb31134fa13797a8</data>
+        <data format="PNG" length="231">89504e470d0a1a0a0000000d4948445200000016000000160806000000c4b46c3b000000ae49444154388db594510ec3200c436db45371b6691fd3cee66bb18f5135a219235af04f442b5e2c03a124ec50d942dd09be4537d45a9b5d4be2f85f1243e06393d748126d53661d9e854a624ac6633c40cff8576e51280010406b0d00dab104b9c69d19e887774201f64ebc7c8f342fc678b0ce553cc76b752e37e368d69edc8c2df4f58c01ef8f4f7533fe176a1e482ef4e2380b6ac0b9d0d36a57161430833e130aacdef62f9acd8ab4793cea0d051970cdbc4f01b20000000049454e44ae426082</data>
     </image>
 </images>
 <connections>
@@ -630,6 +696,18 @@
         <receiver>Neelix</receiver>
         <slot>fileNew()</slot>
     </connection>
+    <connection>
+        <sender>addIngredient</sender>
+        <signal>clicked()</signal>
+        <receiver>Neelix</receiver>
+        <slot>editAdd_Ingredient()</slot>
+    </connection>
+    <connection>
+        <sender>rmIngredient</sender>
+        <signal>clicked()</signal>
+        <receiver>Neelix</receiver>
+        <slot>editDelete()</slot>
+    </connection>
 </connections>
 <tabstops>
     <tabstop>shelf</tabstop>
@@ -642,27 +720,31 @@
     <tabstop>note_edit</tabstop>
     <tabstop>editTab</tabstop>
 </tabstops>
+<includes>
+    <include location="local" impldecl="in implementation">mw.ui.h</include>
+</includes>
 <slots>
-    <slot>recipename_changed(const QString&amp;)</slot>
+    <slot>recipename_changed( const QString &amp; )</slot>
     <slot>fileOpen()</slot>
     <slot>fileSaveAs()</slot>
-    <slot>shelf_item_renamed(QListViewItem * item, int col, const QString &amp; text)</slot>
+    <slot>shelf_item_renamed( QListViewItem * item, int col, const QString &amp; text )</slot>
     <slot>helpAbout()</slot>
     <slot>shelf_currentChanged()</slot>
-    <slot>tottime_changed(const QString&amp;)</slot>
-    <slot>ingredient_changed(int,int)</slot>
-    <slot>yields_changed(const QString&amp;)</slot>
+    <slot>tottime_changed( const QString &amp; )</slot>
+    <slot>ingredient_changed( int, int )</slot>
+    <slot>yields_changed( const QString &amp; )</slot>
     <slot>directions_changed()</slot>
-    <slot>note_changed(const QString&amp;)</slot>
+    <slot>note_changed( const QString &amp; )</slot>
     <slot>editDelete()</slot>
     <slot>note_changed()</slot>
     <slot>editAdd_Category()</slot>
     <slot>editAdd_Cookbook()</slot>
     <slot>editAdd_Ingredient()</slot>
     <slot>editAdd_Recipe()</slot>
-    <slot>author_changed(const QString&amp;)</slot>
+    <slot>author_changed( const QString &amp; )</slot>
     <slot>fileNew()</slot>
     <slot>shelf_selectionChanged()</slot>
+    <slot>rmIngredient_tb_clicked()</slot>
 </slots>
 <layoutdefaults spacing="6" margin="11"/>
 </UI>
