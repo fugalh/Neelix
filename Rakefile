@@ -1,7 +1,7 @@
 require 'rake'
 require 'rake/testtask'
 
-task :default => [:test]
+task :default => [:run]
 
 Rake::TestTask.new do |t|
   t.libs << "test"
@@ -18,6 +18,12 @@ end
 desc 'rbuic'
 task :ui do
   sh 'make -C lib/neelix/view/qt'
+end
+
+desc 'Run neelix'
+task :run do
+  ENV['NEELIX_UNINSTALLED'] = 'Heck Yes!'
+  sh 'ruby `pwd`/bin/neelix'
 end
 
 # vim: filetype=ruby
