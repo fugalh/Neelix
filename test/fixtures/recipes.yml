@@ -1,2 +1,7 @@
-first_recipe:
+wws:
   id: 1
+  name: Whole Wheat Sourdough Bread
+  author: Hans Fugal
+  yields: 2 loaves
+  directions: "Knead, let rise, shape and let rise, bake."
+  notes: "Based off the basic whole wheat bread recipe in Laurel's Kitchen Bread Book."

@@ -5,7 +5,7 @@ task :default => [:test]
 
 Rake::TestTask.new do |t|
   t.libs << "test"
-  t.pattern = "test/unit/**/tc_*.rb"
+  t.pattern = "test/unit/**/*_test.rb"
   #t.verbose = true
 end
 task :test => [:db]

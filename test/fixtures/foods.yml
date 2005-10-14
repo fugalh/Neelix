@@ -1,0 +1,21 @@
+wwf:
+  id: 1
+  name: Whole Wheat Flour
+water:
+  id: 2
+  name: Water
+yeast:
+  id: 3
+  name: Instant Yeast
+salt:
+  id: 4
+  name: Salt
+start:
+  id: 5
+  name: Sourdough Start
+honey:
+  id: 6
+  name: Honey
+oil:
+  id: 7
+  name: Oil

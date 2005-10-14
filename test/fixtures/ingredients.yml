@@ -1,0 +1,29 @@
+wws_start:
+  id: 1
+  recipe_id: 1
+  measure_id: 1
+  food_id: 5
+  quantity: 720
+  modifier: "Active, 100% Hydration"
+  position: 1
+wws_flour:
+  id: 2
+  recipe_id: 1
+  measure_id: 1
+  food_id: 1
+  quantity: 540
+  position: 2
+wws_water:
+  id: 3
+  recipe_id: 1
+  measure_id: 4
+  food_id: 2
+  quantity: 295
+  position: 3
+wws_salt:
+  id: 4
+  recipe_id: 1
+  measure_id: 2
+  food_id: 4
+  quantity: 2
+  position: 4
