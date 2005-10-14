@@ -1,29 +1,18 @@
 #!/usr/bin/ruby
 
-# Different behavior based on whether we are installed, or running from rake
-config = {}
-if ENV.member?('NEELIX_UNINSTALLED')
-  puts "Uninstalled..."
-  prefix = File.dirname(__FILE__) + '/../'
-  config['datadir'] = prefix + '/data'
-  $:.push(prefix + '/lib')
-else
-  require 'rbconfig'
-  config['datadir'] = Config::CONFIG['datadir']
-end
-
 require 'neelix'
-require 'neelix/view/qt'
+app = Neelix.new
 
 # Establish database connection 
 # (TODO: if file doesn't exist create it using data/neelix/create.sql)
-ar = { :adapter => 'sqlite3', :dbfile => ENV['HOME']+'/.neelix/db' }
-ar[:dbfile] = ARGV[0] unless ARGV.empty?
-ActiveRecord::Base.establish_connection(ar)
+dbfile = ENV['HOME']+'/.neelix/db'
+dbfile = ARGV[0] unless ARGV.empty?
+app.open(dbfile)
 
 if $0 == __FILE__
+  require 'neelix/view/qt'
   a = Qt::Application.new(ARGV)
-  w = Neelix.new
+  w = NeelixMainWindow.new
   a.mainWidget = w
   w.show
   a.exec

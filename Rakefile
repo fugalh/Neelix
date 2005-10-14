@@ -12,7 +12,7 @@ task :test => [:db]
 
 task :db  do |t|
   sh "rm -f test/test.db"
-  sh "sqlite3 test/test.db < data/create.sql"
+  sh "sqlite3 test/test.db < data/neelix/create.sql"
 end
 
 desc 'rbuic'
@@ -23,7 +23,7 @@ end
 desc 'Run neelix'
 task :run do
   ENV['NEELIX_UNINSTALLED'] = 'Heck Yes!'
-  sh 'ruby `pwd`/bin/neelix'
+  sh 'ruby -Ilib `pwd`/bin/neelix'
 end
 
 # vim: filetype=ruby
