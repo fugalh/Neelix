@@ -1,8 +1,8 @@
 <!DOCTYPE UI><UI version="3.3" stdsetdef="1">
-<class>NeelixMainWindow</class>
+<class>NeelixMainWindowBase</class>
 <widget class="QMainWindow">
     <property name="name">
-        <cstring>NeelixMainWindow</cstring>
+        <cstring>NeelixMainWindowBase</cstring>
     </property>
     <property name="geometry">
         <rect>
@@ -629,79 +629,79 @@
     <connection>
         <sender>fileOpenAction</sender>
         <signal>activated()</signal>
-        <receiver>NeelixMainWindow</receiver>
+        <receiver>NeelixMainWindowBase</receiver>
         <slot>fileOpen()</slot>
     </connection>
     <connection>
         <sender>fileSaveAsAction</sender>
         <signal>activated()</signal>
-        <receiver>NeelixMainWindow</receiver>
+        <receiver>NeelixMainWindowBase</receiver>
         <slot>fileSaveAs()</slot>
     </connection>
     <connection>
         <sender>fileExitAction</sender>
         <signal>activated()</signal>
-        <receiver>NeelixMainWindow</receiver>
+        <receiver>NeelixMainWindowBase</receiver>
         <slot>close()</slot>
     </connection>
     <connection>
         <sender>helpAboutAction</sender>
         <signal>activated()</signal>
-        <receiver>NeelixMainWindow</receiver>
+        <receiver>NeelixMainWindowBase</receiver>
         <slot>helpAbout()</slot>
     </connection>
     <connection>
         <sender>shelf</sender>
         <signal>currentChanged(QListViewItem*)</signal>
-        <receiver>NeelixMainWindow</receiver>
+        <receiver>NeelixMainWindowBase</receiver>
         <slot>shelf_currentChanged()</slot>
     </connection>
     <connection>
         <sender>shelf</sender>
         <signal>itemRenamed(QListViewItem*,int,const QString&amp;)</signal>
-        <receiver>NeelixMainWindow</receiver>
+        <receiver>NeelixMainWindowBase</receiver>
         <slot>shelf_item_renamed(QListViewItem*,int,const QString&amp;)</slot>
     </connection>
     <connection>
         <sender>editAdd_RecipeAction</sender>
         <signal>activated()</signal>
-        <receiver>NeelixMainWindow</receiver>
+        <receiver>NeelixMainWindowBase</receiver>
         <slot>editAdd_Recipe()</slot>
     </connection>
     <connection>
         <sender>editAdd_IngredientAction</sender>
         <signal>activated()</signal>
-        <receiver>NeelixMainWindow</receiver>
+        <receiver>NeelixMainWindowBase</receiver>
         <slot>editAdd_Ingredient()</slot>
     </connection>
     <connection>
         <sender>fileNewAction</sender>
         <signal>activated()</signal>
-        <receiver>NeelixMainWindow</receiver>
+        <receiver>NeelixMainWindowBase</receiver>
         <slot>fileNew()</slot>
     </connection>
     <connection>
         <sender>add_recipe</sender>
         <signal>clicked()</signal>
-        <receiver>NeelixMainWindow</receiver>
+        <receiver>NeelixMainWindowBase</receiver>
         <slot>editAdd_Recipe()</slot>
     </connection>
     <connection>
         <sender>rm_recipe</sender>
         <signal>clicked()</signal>
-        <receiver>NeelixMainWindow</receiver>
+        <receiver>NeelixMainWindowBase</receiver>
         <slot>delete_recipe()</slot>
     </connection>
     <connection>
         <sender>rm_recipe_action</sender>
         <signal>activated()</signal>
-        <receiver>NeelixMainWindow</receiver>
+        <receiver>NeelixMainWindowBase</receiver>
         <slot>delete_recipe()</slot>
     </connection>
     <connection>
         <sender>rm_ingredient_action</sender>
         <signal>activated()</signal>
-        <receiver>NeelixMainWindow</receiver>
+        <receiver>NeelixMainWindowBase</receiver>
         <slot>delete_ingredient()</slot>
     </connection>
 </connections>
