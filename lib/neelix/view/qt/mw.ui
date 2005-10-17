@@ -289,14 +289,6 @@
                                         <property name="name">
                                             <cstring>ingredients_table</cstring>
                                         </property>
-                                        <property name="sizePolicy">
-                                            <sizepolicy>
-                                                <hsizetype>7</hsizetype>
-                                                <vsizetype>3</vsizetype>
-                                                <horstretch>0</horstretch>
-                                                <verstretch>0</verstretch>
-                                            </sizepolicy>
-                                        </property>
                                         <property name="vScrollBarMode">
                                             <enum>AlwaysOn</enum>
                                         </property>
@@ -683,14 +675,14 @@
     <connection>
         <sender>add_recipe</sender>
         <signal>clicked()</signal>
-        <receiver>NeelixMainWindowBase</receiver>
-        <slot>editAdd_Recipe()</slot>
+        <receiver>editAdd_RecipeAction</receiver>
+        <slot>activate()</slot>
     </connection>
     <connection>
         <sender>rm_recipe</sender>
         <signal>clicked()</signal>
-        <receiver>NeelixMainWindowBase</receiver>
-        <slot>delete_recipe()</slot>
+        <receiver>rm_ingredient_action</receiver>
+        <slot>activate()</slot>
     </connection>
     <connection>
         <sender>rm_recipe_action</sender>
@@ -703,6 +695,18 @@
         <signal>activated()</signal>
         <receiver>NeelixMainWindowBase</receiver>
         <slot>delete_ingredient()</slot>
+    </connection>
+    <connection>
+        <sender>add_ingredient</sender>
+        <signal>clicked()</signal>
+        <receiver>editAdd_IngredientAction</receiver>
+        <slot>activate()</slot>
+    </connection>
+    <connection>
+        <sender>rm_ingredient</sender>
+        <signal>clicked()</signal>
+        <receiver>rm_ingredient_action</receiver>
+        <slot>activate()</slot>
     </connection>
 </connections>
 <tabstops>

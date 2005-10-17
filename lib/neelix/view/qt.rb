@@ -65,11 +65,25 @@ class NeelixMainWindow < NeelixMainWindowBase
     @yields_entry.text = r.yields
     @tottime_entry.text = r.tottime
     
-    # TODO ingredients table
+    @ingredients_table.num_rows = r.ingredients.size+1
+    r.ingredients.each_with_index do |i,j|
+      @ingredients_table.set_text(j,0,i.quantity.to_s)
+      @ingredients_table.set_text(j,1,i.measure.name)
+      @ingredients_table.set_text(j,2,i.food.name)
+      @ingredients_table.set_text(j,3,i.modifier)
+    end
 
     @directions_edit.text = r.directions
     @note_edit.text = r.notes
 
     @counterStack.enabled = true
+  end
+
+  def editAdd_Ingredient
+    @ingredients_table.num_rows += 1
+  end
+
+  def delete_ingredient
+    @ingredients_table.remove_row(@ingredients_table.current_row)
   end
 end
