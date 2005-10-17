@@ -8,8 +8,9 @@ Rake::TestTask.new do |t|
   t.pattern = "test/unit/**/*_test.rb"
   #t.verbose = true
 end
-task :test => [:db]
+task :test => [:db,:ui]
 
+desc "Set up test/test.db"
 task :db  do |t|
   sh "rm -f test/test.db"
   sh "sqlite3 test/test.db < data/neelix/create.sql"
