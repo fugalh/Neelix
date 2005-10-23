@@ -1,0 +1,5 @@
+Requirements (Debian)
+- libdevel-logger-ruby1.8
+- libsqlite3-ruby1.8
+- rails (for ActiveRecord)
+- libqt0-ruby1.8
