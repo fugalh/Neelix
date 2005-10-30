@@ -12,8 +12,8 @@ CREATE TABLE foods_measures (
 CREATE TABLE ingredients (
   id INTEGER NOT NULL PRIMARY KEY,
   recipe_id INTEGER,
-  measure_id INTEGER NOT NULL,
-  food_id INTEGER NOT NULL,
+  measure_id INTEGER,
+  food_id INTEGER,
   quantity float,
   modifier varchar(80),
   position INTEGER

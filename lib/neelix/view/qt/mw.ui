@@ -681,7 +681,7 @@
     <connection>
         <sender>rm_recipe</sender>
         <signal>clicked()</signal>
-        <receiver>rm_ingredient_action</receiver>
+        <receiver>rm_recipe_action</receiver>
         <slot>activate()</slot>
     </connection>
     <connection>
@@ -708,6 +708,24 @@
         <receiver>rm_ingredient_action</receiver>
         <slot>activate()</slot>
     </connection>
+    <connection>
+        <sender>ingredients_table</sender>
+        <signal>currentChanged(int,int)</signal>
+        <receiver>NeelixMainWindowBase</receiver>
+        <slot>ingredient_current_changed(int,int)</slot>
+    </connection>
+    <connection>
+        <sender>ingredients_table</sender>
+        <signal>valueChanged(int,int)</signal>
+        <receiver>NeelixMainWindowBase</receiver>
+        <slot>ingredient_value_changed(int,int)</slot>
+    </connection>
+    <connection>
+        <sender>ingredients_table.verticalHeader</sender>
+        <signal>indexChange(int,int,int)</signal>
+        <receiver>NeelixMainWindowBase</receiver>
+        <slot>ingredient_row_moved(int,int,int)</slot>
+    </connection>
 </connections>
 <tabstops>
     <tabstop>shelf</tabstop>
@@ -720,6 +738,9 @@
     <tabstop>directions_edit</tabstop>
     <tabstop>notes_edit</tabstop>
 </tabstops>
+<includes>
+    <include location="local" impldecl="in implementation">mw.ui.h</include>
+</includes>
 <slots>
     <slot>recipename_changed( const QString &amp; )</slot>
     <slot>fileOpen()</slot>
@@ -728,7 +749,9 @@
     <slot>helpAbout()</slot>
     <slot>shelf_currentChanged()</slot>
     <slot>tottime_changed( const QString &amp; )</slot>
-    <slot>ingredient_changed( int, int )</slot>
+    <slot>ingredient_value_changed( int, int )</slot>
+    <slot>ingredient_current_changed( int, int )</slot>
+    <slot>ingredient_row_moved( int, int, int)</slot>
     <slot>yields_changed( const QString &amp; )</slot>
     <slot>directions_changed()</slot>
     <slot>notes_changed( const QString &amp; )</slot>
