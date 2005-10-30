@@ -93,7 +93,7 @@
                                 </property>
                                 <widget class="QLineEdit" row="0" column="1">
                                     <property name="name">
-                                        <cstring>recipe_entry</cstring>
+                                        <cstring>recipename_entry</cstring>
                                     </property>
                                     <property name="sizePolicy">
                                         <sizepolicy>
@@ -374,7 +374,7 @@
                                         </property>
                                         <widget class="QTextEdit">
                                             <property name="name">
-                                                <cstring>note_edit</cstring>
+                                                <cstring>notes_edit</cstring>
                                             </property>
                                             <property name="textFormat">
                                                 <enum>PlainText</enum>
@@ -711,6 +711,14 @@
 </connections>
 <tabstops>
     <tabstop>shelf</tabstop>
+    <tabstop>recipename_entry</tabstop>
+    <tabstop>author_entry</tabstop>
+    <tabstop>tottime_entry</tabstop>
+    <tabstop>yields_entry</tabstop>
+    <tabstop>ingredients_table</tabstop>
+    <tabstop>editTab</tabstop>
+    <tabstop>directions_edit</tabstop>
+    <tabstop>notes_edit</tabstop>
 </tabstops>
 <slots>
     <slot>recipename_changed( const QString &amp; )</slot>
@@ -723,8 +731,8 @@
     <slot>ingredient_changed( int, int )</slot>
     <slot>yields_changed( const QString &amp; )</slot>
     <slot>directions_changed()</slot>
-    <slot>note_changed( const QString &amp; )</slot>
-    <slot>note_changed()</slot>
+    <slot>notes_changed( const QString &amp; )</slot>
+    <slot>notes_changed()</slot>
     <slot>editAdd_Category()</slot>
     <slot>editAdd_Ingredient()</slot>
     <slot>editAdd_Recipe()</slot>
@@ -733,6 +741,8 @@
     <slot>shelf_selectionChanged()</slot>
     <slot>delete_ingredient()</slot>
     <slot>delete_recipe()</slot>
+    <slot>save()</slot>
+    <slot>destroyed( QObject * )</slot>
 </slots>
 <layoutdefaults spacing="6" margin="11"/>
 </UI>

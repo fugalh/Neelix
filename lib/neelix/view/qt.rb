@@ -7,6 +7,9 @@ class RecipeItem < Qt::ListViewItem
   def initialize(parent,recipe)
     @recipe = recipe
     super(parent)
+    # I see where they're coming from, but man I wish ruby had some kind of
+    # destructor (that can see self).
+    ObjectSpace.define_finalizer(self, proc { @recipe.save })
   end
 
   def text(col=0)
@@ -31,6 +34,21 @@ class NeelixMainWindow < NeelixMainWindowBase
     recipes = Recipe.find(:all)
     recipes.each {|r| RecipeItem.new(@shelf,r)}
     shelf_currentChanged # is there a Qt way to do this? emit maybe?
+
+
+    %w{recipename author tottime yields}.each do |i|
+      eval "Qt::Object.connect(@#{i}_entry, " +
+	"SIGNAL('textChanged(const QString&)'), self, " +
+	"SLOT('#{i}_changed(const QString&)') )"
+      eval "Qt::Object.connect(@#{i}_entry, " +
+	"SIGNAL('returnPressed()'), self, " +
+	"SLOT('save()') )"
+    end
+    %w{directions notes}.each do |i|
+      eval "Qt::Object.connect(@#{i}_edit, " +
+	"SIGNAL('textChanged()'), self, " +
+	"SLOT('#{i}_changed()') )"
+    end
   end
 
   def shelf_currentChanged
@@ -61,7 +79,7 @@ class NeelixMainWindow < NeelixMainWindowBase
       return nil
     end
 
-    @recipe_entry.text = r.name
+    @recipename_entry.text = r.name
     @author_entry.text = r.author
     @yields_entry.text = r.yields
     @tottime_entry.text = r.tottime
@@ -75,7 +93,7 @@ class NeelixMainWindow < NeelixMainWindowBase
     end
 
     @directions_edit.text = r.directions
-    @note_edit.text = r.notes
+    @notes_edit.text = r.notes
 
     @counterStack.enabled = true
   end
@@ -86,5 +104,35 @@ class NeelixMainWindow < NeelixMainWindowBase
 
   def delete_ingredient
     @ingredients_table.remove_row(@ingredients_table.current_row)
+  end
+
+  def helpAbout(*)
+    AboutDialog.new.exec
+  end
+
+  def shelf_item_renamed(item, i, name)
+    item.recipe.name = name
+    item.recipe.save
+    @recipename_entry.text = item.recipe.name
+  end
+
+  def recipename_changed(name)
+    recipe.name = name
+    @shelf.triggerUpdate
+  end
+
+  %w{author tottime yields directions notes}.each do |i|
+    eval "def #{i}_changed(s); recipe.#{i} = s; end"
+  end
+  %w{notes directions}.each do |i|
+    eval "def #{i}_changed(); recipe.#{i} = @#{i}_edit.text; end"
+  end
+
+  def save
+    @shelf.current_item.recipe.save
+  end
+
+  def recipe
+    @shelf.current_item.recipe
   end
 end
