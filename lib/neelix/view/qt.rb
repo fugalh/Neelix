@@ -105,10 +105,8 @@ class NeelixMainWindow < NeelixMainWindowBase
     @ingredients_table.num_rows = r.ingredients.size+1
     r.ingredients.each_with_index do |i,j|
       @ingredients_table.set_text(j,0,i.quantity.to_s)
-      @ingredients_table.set_text(j,1,
-				  i.measure.nil? ? '' : i.measure.name)
-      @ingredients_table.set_text(j,2,i.food.name
-				  i.food.nil? ? '' : i.food.name)
+      @ingredients_table.set_text(j,1,i.measure.name) unless i.measure.nil?
+      @ingredients_table.set_text(j,2,i.food.name) unless i.measure.nil?
       @ingredients_table.set_text(j,3,i.modifier)
     end
 
