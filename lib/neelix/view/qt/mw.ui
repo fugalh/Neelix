@@ -56,6 +56,9 @@
                         <verstretch>0</verstretch>
                     </sizepolicy>
                 </property>
+                <property name="defaultRenameAction">
+                    <enum>Accept</enum>
+                </property>
             </widget>
             <widget class="QWidgetStack">
                 <property name="name">
@@ -233,6 +236,14 @@
                                                 <property name="name">
                                                     <cstring>add_ingredient</cstring>
                                                 </property>
+                                                <property name="sizePolicy">
+                                                    <sizepolicy>
+                                                        <hsizetype>0</hsizetype>
+                                                        <vsizetype>0</vsizetype>
+                                                        <horstretch>0</horstretch>
+                                                        <verstretch>0</verstretch>
+                                                    </sizepolicy>
+                                                </property>
                                                 <property name="minimumSize">
                                                     <size>
                                                         <width>20</width>
@@ -249,6 +260,14 @@
                                             <widget class="QToolButton">
                                                 <property name="name">
                                                     <cstring>rm_ingredient</cstring>
+                                                </property>
+                                                <property name="sizePolicy">
+                                                    <sizepolicy>
+                                                        <hsizetype>0</hsizetype>
+                                                        <vsizetype>0</vsizetype>
+                                                        <horstretch>0</horstretch>
+                                                        <verstretch>0</verstretch>
+                                                    </sizepolicy>
                                                 </property>
                                                 <property name="minimumSize">
                                                     <size>
@@ -409,19 +428,41 @@
                     <property name="name">
                         <cstring>add_recipe</cstring>
                     </property>
+                    <property name="sizePolicy">
+                        <sizepolicy>
+                            <hsizetype>0</hsizetype>
+                            <vsizetype>0</vsizetype>
+                            <horstretch>0</horstretch>
+                            <verstretch>0</verstretch>
+                        </sizepolicy>
+                    </property>
                     <property name="minimumSize">
                         <size>
                             <width>20</width>
                             <height>20</height>
                         </size>
                     </property>
+                    <property name="focusPolicy">
+                        <enum>TabFocus</enum>
+                    </property>
                     <property name="text">
                         <string>+</string>
+                    </property>
+                    <property name="toolTip" stdset="0">
+                        <string>Add a Recipe</string>
                     </property>
                 </widget>
                 <widget class="QToolButton">
                     <property name="name">
                         <cstring>rm_recipe</cstring>
+                    </property>
+                    <property name="sizePolicy">
+                        <sizepolicy>
+                            <hsizetype>0</hsizetype>
+                            <vsizetype>0</vsizetype>
+                            <horstretch>0</horstretch>
+                            <verstretch>0</verstretch>
+                        </sizepolicy>
                     </property>
                     <property name="minimumSize">
                         <size>
@@ -431,6 +472,9 @@
                     </property>
                     <property name="text">
                         <string>-</string>
+                    </property>
+                    <property name="toolTip" stdset="0">
+                        <string>Delete the Current Recipe</string>
                     </property>
                 </widget>
                 <spacer>
@@ -445,7 +489,7 @@
                     </property>
                     <property name="sizeHint">
                         <size>
-                            <width>610</width>
+                            <width>723</width>
                             <height>20</height>
                         </size>
                     </property>
@@ -720,12 +764,6 @@
         <receiver>NeelixMainWindowBase</receiver>
         <slot>ingredient_value_changed(int,int)</slot>
     </connection>
-    <connection>
-        <sender>ingredients_table.verticalHeader</sender>
-        <signal>indexChange(int,int,int)</signal>
-        <receiver>NeelixMainWindowBase</receiver>
-        <slot>ingredient_row_moved(int,int,int)</slot>
-    </connection>
 </connections>
 <tabstops>
     <tabstop>shelf</tabstop>
@@ -734,13 +772,10 @@
     <tabstop>tottime_entry</tabstop>
     <tabstop>yields_entry</tabstop>
     <tabstop>ingredients_table</tabstop>
-    <tabstop>editTab</tabstop>
     <tabstop>directions_edit</tabstop>
     <tabstop>notes_edit</tabstop>
+    <tabstop>editTab</tabstop>
 </tabstops>
-<includes>
-    <include location="local" impldecl="in implementation">mw.ui.h</include>
-</includes>
 <slots>
     <slot>recipename_changed( const QString &amp; )</slot>
     <slot>fileOpen()</slot>
@@ -749,13 +784,11 @@
     <slot>helpAbout()</slot>
     <slot>shelf_currentChanged()</slot>
     <slot>tottime_changed( const QString &amp; )</slot>
-    <slot>ingredient_value_changed( int, int )</slot>
-    <slot>ingredient_current_changed( int, int )</slot>
-    <slot>ingredient_row_moved( int, int, int)</slot>
+    <slot>ingredient_changed( int, int )</slot>
     <slot>yields_changed( const QString &amp; )</slot>
     <slot>directions_changed()</slot>
-    <slot>notes_changed( const QString &amp; )</slot>
-    <slot>notes_changed()</slot>
+    <slot>note_changed( const QString &amp; )</slot>
+    <slot>note_changed()</slot>
     <slot>editAdd_Category()</slot>
     <slot>editAdd_Ingredient()</slot>
     <slot>editAdd_Recipe()</slot>
@@ -766,6 +799,11 @@
     <slot>delete_recipe()</slot>
     <slot>save()</slot>
     <slot>destroyed( QObject * )</slot>
+    <slot>ingredient_value_changed( int, int )</slot>
+    <slot>ingredient_current_changed( int, int )</slot>
+    <slot>ingredient_row_moved( int, int, int)</slot>
+    <slot>notes_changed( const QString &amp; )</slot>
+    <slot>notes_changed()</slot>
 </slots>
 <layoutdefaults spacing="6" margin="11"/>
 </UI>

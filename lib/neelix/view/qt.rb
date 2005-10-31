@@ -93,6 +93,10 @@ class NeelixMainWindow < NeelixMainWindowBase
   def recipe=(r)
     if r.nil?
       @counterStack.enabled = false
+      @editAdd_IngredientAction.enabled = false
+      @rm_ingredient_action.enabled = false
+      @rm_recipe_action.enabled = false
+      @rm_recipe.enabled = false
       return nil
     end
 
@@ -104,16 +108,24 @@ class NeelixMainWindow < NeelixMainWindowBase
     @ingredients_table.num_rows = 0
     @ingredients_table.num_rows = r.ingredients.size+1
     r.ingredients.each_with_index do |i,j|
-      @ingredients_table.set_text(j,0,i.quantity.to_s)
+      @ingredients_table.set_text(j,0,sprintf("%g",i.quantity))
       @ingredients_table.set_text(j,1,i.measure.name) unless i.measure.nil?
       @ingredients_table.set_text(j,2,i.food.name) unless i.measure.nil?
       @ingredients_table.set_text(j,3,i.modifier)
     end
+    @ingredients_table.set_current_cell 0,0
 
     @directions_edit.text = r.directions
     @notes_edit.text = r.notes
 
+    @recipename_entry.select_all
+
     @counterStack.enabled = true
+    @recipename_entry.set_focus
+    @editAdd_IngredientAction.enabled = true
+    @rm_ingredient_action.enabled = true
+    @rm_recipe_action.enabled = true
+    @rm_recipe.enabled = true
   end
 
   def editAdd_Ingredient

@@ -1,9 +1,6 @@
 core:
     - looks like the db creation isn't taking. needs to be saved maybe?
 qt:
-    - menus
-    - create recipe => recipename_entry selected
-    - tab into table should select first cell
 
 then:
     - meal plans
