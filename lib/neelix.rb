@@ -37,12 +37,12 @@ class Neelix
   end
 
   def open(filename)
-    newdb = ! File.exist?(filename)
+    unless File.exist?(filename)
+      IO.popen('sqlite3 '+filename,'w') do |f|
+	f.puts File.read(@config['datadir'] + '/neelix/create.sql')
+      end
+    end
     ActiveRecord::Base.establish_connection(:adapter => 'sqlite3',
 					    :dbfile => filename)
-    if newdb
-      ActiveRecord::Base.connection.execute(File.read(@config['datadir'] +
-						      '/neelix/create.sql'))
-    end
   end
 end
