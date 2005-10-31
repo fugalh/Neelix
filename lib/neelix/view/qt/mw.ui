@@ -8,8 +8,8 @@
         <rect>
             <x>0</x>
             <y>0</y>
-            <width>714</width>
-            <height>553</height>
+            <width>700</width>
+            <height>550</height>
         </rect>
     </property>
     <property name="caption">
@@ -773,8 +773,9 @@
     <tabstop>yields_entry</tabstop>
     <tabstop>ingredients_table</tabstop>
     <tabstop>directions_edit</tabstop>
-    <tabstop>notes_edit</tabstop>
     <tabstop>editTab</tabstop>
+    <tabstop>notes_edit</tabstop>
+    <tabstop>rm_recipe</tabstop>
 </tabstops>
 <slots>
     <slot>recipename_changed( const QString &amp; )</slot>
