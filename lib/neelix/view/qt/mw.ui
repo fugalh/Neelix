@@ -349,7 +349,7 @@
                                 </property>
                                 <widget class="QWidget">
                                     <property name="name">
-                                        <cstring>tab</cstring>
+                                        <cstring>directions_tab</cstring>
                                     </property>
                                     <attribute name="title">
                                         <string>&amp;Directions</string>
@@ -382,7 +382,7 @@
                                 </widget>
                                 <widget class="QWidget">
                                     <property name="name">
-                                        <cstring>tab</cstring>
+                                        <cstring>notes_tab</cstring>
                                     </property>
                                     <attribute name="title">
                                         <string>&amp;Notes</string>

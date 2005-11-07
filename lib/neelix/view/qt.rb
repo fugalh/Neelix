@@ -100,6 +100,7 @@ class NeelixMainWindow < NeelixMainWindowBase
       @rm_recipe.enabled = false
       return nil
     end
+    @editTab.showPage @directions_tab
 
     @recipename_entry.text = r.name
     @author_entry.text = r.author
