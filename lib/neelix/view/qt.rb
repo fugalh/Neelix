@@ -91,6 +91,7 @@ class NeelixMainWindow < NeelixMainWindowBase
   end
 
   def recipe=(r)
+    save
     if r.nil?
       @counterStack.enabled = false
       @editAdd_IngredientAction.enabled = false
@@ -213,10 +214,11 @@ class NeelixMainWindow < NeelixMainWindowBase
   end
 
   def save
-    @shelf.current_item.recipe.save
+    recipe.save unless recipe.nil?
   end
 
   def recipe
-    @shelf.current_item.recipe
+    return nil if @shelf.current_item.nil?
+    @shelf.current_item.recipe 
   end
 end

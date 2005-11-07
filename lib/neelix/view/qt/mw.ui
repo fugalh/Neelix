@@ -504,6 +504,7 @@
     </property>
     <item text="&amp;File" name="fileMenu">
         <separator/>
+        <action name="save_action"/>
         <action name="fileExitAction"/>
     </item>
     <item text="&amp;Edit" name="unnamed">
@@ -609,6 +610,9 @@
         <property name="menuText">
             <string>Add &amp;Recipe</string>
         </property>
+        <property name="toolTip">
+            <string>Add Recipe</string>
+        </property>
     </action>
     <action>
         <property name="name">
@@ -622,6 +626,9 @@
         </property>
         <property name="menuText">
             <string>Add &amp;Ingredient</string>
+        </property>
+        <property name="toolTip">
+            <string>Add Ingredient</string>
         </property>
     </action>
     <action>
@@ -647,6 +654,23 @@
         </property>
         <property name="text">
             <string>Delete Recipe</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>save_action</cstring>
+        </property>
+        <property name="text">
+            <string>Save</string>
+        </property>
+        <property name="menuText">
+            <string>&amp;Save</string>
+        </property>
+        <property name="toolTip">
+            <string>Save</string>
+        </property>
+        <property name="accel">
+            <string>Ctrl+S</string>
         </property>
     </action>
 </actions>
@@ -763,6 +787,12 @@
         <signal>valueChanged(int,int)</signal>
         <receiver>NeelixMainWindowBase</receiver>
         <slot>ingredient_value_changed(int,int)</slot>
+    </connection>
+    <connection>
+        <sender>save_action</sender>
+        <signal>activated()</signal>
+        <receiver>NeelixMainWindowBase</receiver>
+        <slot>save()</slot>
     </connection>
 </connections>
 <tabstops>
