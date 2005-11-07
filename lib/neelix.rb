@@ -17,10 +17,11 @@ end
 class Neelix
   attr_reader :config
   def initialize
+    logger.level = Logger::WARN unless ENV.member?('NEELIX_DEBUG')
     # Get the configuration
     @config = {}
     if ENV.member?('NEELIX_UNINSTALLED')
-      puts "Uninstalled..."
+      logger.info "Running in uninstalled/bundle mode."
       prefix = File.dirname(__FILE__) + '/../'
       @config['datadir'] = prefix + '/data'
     else

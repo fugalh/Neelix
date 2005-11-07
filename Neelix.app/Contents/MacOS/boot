@@ -1,0 +1,4 @@
+#!/bin/sh
+RESOURCES=`dirname $0`/../Resources
+export NEELIX_UNINSTALLED=yes
+exec ruby -I $RESOURCES/lib -C $RESOURCES  $RESOURCES/rb_main.rb 

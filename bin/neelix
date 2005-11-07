@@ -4,7 +4,6 @@ require 'neelix'
 app = Neelix.new
 
 # Establish database connection 
-# (TODO: if file doesn't exist create it using data/neelix/create.sql)
 dbfile = ENV['HOME']+'/.neelix/db'
 dbfile = ARGV[0] unless ARGV.empty?
 app.open(dbfile)
