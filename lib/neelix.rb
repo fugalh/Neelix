@@ -8,6 +8,7 @@ class ActiveRecord::Base
   end
 end
 ActiveRecord::Base.logger ||= Logger.new STDERR
+ActiveRecord::Base.colorize_logging = false
 
 # require model
 Dir.glob(File.dirname(__FILE__) + "/neelix/model/**/*.rb").each do |f| 
@@ -17,7 +18,11 @@ end
 class Neelix
   attr_reader :config
   def initialize
-    logger.level = Logger::WARN unless ENV.member?('NEELIX_DEBUG')
+    if ENV.member?('NEELIX_DEBUG')
+      logger.level = ENV['NEELIX_DEBUG'].to_i
+    else
+      logger.level = Logger::WARN
+    end
     # Get the configuration
     @config = {}
     if ENV.member?('NEELIX_UNINSTALLED')
