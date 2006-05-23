@@ -1,6 +1,11 @@
 core:
     - looks like the db creation isn't taking. needs to be saved maybe?
 qt:
+    - Toolbar: save, exit
+    - column autosizing
+    - directions word wrap
 
-then:
+next:
     - meal plans
+    - typeahead
+    - merge quantity and measure?
