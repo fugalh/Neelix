@@ -33,5 +33,10 @@ task :dmg => [:bundle] do
   sh 'hdiutil internet-enable -yes Neelix.dmg'
 end
 
+desc "A quick way to run it from deep in the subtrees"
+task :run => [:ui] do
+  sh 'sh neelix.sh'
+end
+
 
 # vim: filetype=ruby

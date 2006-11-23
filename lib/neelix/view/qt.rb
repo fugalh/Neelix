@@ -2,224 +2,173 @@ require 'neelix'
 require 'neelix/view/qt/mw.rb'
 require 'neelix/view/qt/aboutdialog.rb'
 
-class RecipeItem < Qt::ListViewItem
-  attr_accessor :recipe
-  def initialize(parent,recipe)
-    @recipe = recipe
-    super(parent)
-    # I see where they're coming from, but man I wish ruby had some kind of
-    # destructor (that can see self).
-    ObjectSpace.define_finalizer(self, proc { @recipe.save unless @recipe.nil?})
+# TODO
+# - shelf model
+# - ingredients table model editable
+# - wire up QtNeelix
+
+class IngredientTableModel < Qt::AbstractTableModel
+  def initialize(r)
+    super(nil)
+    @recipe = r
   end
 
-  def text(col=0)
-    case col
-    when 0
-      @recipe.name
-    else
-      nil
-    end
-  end
-  def setText(col, text)
-    super
-    @recipe.name = text if col == 0
-  end
-  def dispose
-    @recipe = nil
-    super
-  end
-end
-
-class NeelixMainWindow < NeelixMainWindowBase
-  def initialize(*k)
-    super(*k)
-
-    @shelf.clear
-    recipes = Recipe.find(:all)
-    recipes.each {|r| RecipeItem.new(@shelf,r)}
-    shelf_currentChanged # is there a Qt way to do this? emit maybe?
-
-
-    %w{recipename author tottime yields}.each do |i|
-      eval "Qt::Object.connect(@#{i}_entry, " +
-	"SIGNAL('textChanged(const QString&)'), self, " +
-	"SLOT('#{i}_changed(const QString&)') )"
-      eval "Qt::Object.connect(@#{i}_entry, " +
-	"SIGNAL('returnPressed()'), self, " +
-	"SLOT('save()') )"
-    end
-    %w{directions notes}.each do |i|
-      eval "Qt::Object.connect(@#{i}_edit, " +
-	"SIGNAL('textChanged()'), self, " +
-	"SLOT('#{i}_changed()') )"
-    end
-
-    class << @ingredients_table
-      def activateNextCell
-	row = current_row
-	col = current_column + 1
-	if col > 3
-	  row += 1
-	  col  = 0
-	end
-	set_current_cell row,col
-      end
-    end
-  end
-
-  def shelf_currentChanged
-    item = @shelf.current_item
-    if item.nil?
-      self.recipe = nil
-      return
-    else
-      self.recipe = item.recipe
-    end
-  end
-
-  def editAdd_Recipe
-    item = RecipeItem.new(@shelf,Recipe.new(:name => 'New Recipe'))
-    @shelf.current_item = item
-    shelf_currentChanged if @shelf.child_count <= 1
-  end
-
-  def delete_recipe
-    item = @shelf.current_item
-    r = item.recipe
-    item.dispose
-    r.destroy
+  def ingredients
+    @recipe.ingredients
   end
 
   def recipe=(r)
-    save
-    if r.nil?
-      @counterStack.enabled = false
-      @editAdd_IngredientAction.enabled = false
-      @rm_ingredient_action.enabled = false
-      @rm_recipe_action.enabled = false
-      @rm_recipe.enabled = false
-      return nil
-    end
-    @editTab.showPage @directions_tab
-
-    @recipename_entry.text = r.name
-    @author_entry.text = r.author
-    @yields_entry.text = r.yields
-    @tottime_entry.text = r.tottime
-    
-    @ingredients_table.num_rows = 0
-    @ingredients_table.num_rows = r.ingredients.size+1
-    r.ingredients.each_with_index do |i,j|
-      @ingredients_table.set_text(j,0,sprintf("%g",i.quantity)) unless i.quantity.nil?
-      @ingredients_table.set_text(j,1,i.measure.name) unless i.measure.nil?
-      @ingredients_table.set_text(j,2,i.food.name) unless i.measure.nil?
-      @ingredients_table.set_text(j,3,i.modifier)
-    end
-    @ingredients_table.set_current_cell 0,0
-
-    @directions_edit.text = r.directions
-    @notes_edit.text = r.notes
-
-    @recipename_entry.select_all
-
-    @counterStack.enabled = true
-    @recipename_entry.set_focus
-    @editAdd_IngredientAction.enabled = true
-    @rm_ingredient_action.enabled = true
-    @rm_recipe_action.enabled = true
-    @rm_recipe.enabled = true
+    @recipe = r
+    emit dataChanged(index, index)
   end
 
-  def editAdd_Ingredient
-    @ingredients_table.num_rows += 1
+  def rowCount(parent=nil)
+    ingredients.size
   end
 
-  def delete_ingredient(row=nil)
-    row = @ingredients_table.current_row if row.nil?
-    @ingredients_table.remove_row(row)
-    i = recipe.ingredients[row]
-    recipe.ingredients.delete i unless i.nil?
+  def columnCount(parent=nil)
+    4
   end
 
-  def helpAbout(*)
-    AboutDialog.new.exec
+  def data(index, role=Qt::DisplayRole)
+    invalid = Qt::Variant.new
+    return invalid unless role == Qt::DisplayRole
+    i = ingredients[index.row]
+    return invalid if i.nil?
+
+    v = case index.column
+        when 0
+          sprintf("%g",i.quantity) unless i.quantity.nil?
+        when 1
+          i.measure.name unless i.measure.nil?
+        when 2
+          i.food.name unless i.food.nil?
+        when 3
+          i.modifier
+        end
+    return Qt::Variant.new(v)
   end
 
-  def shelf_item_renamed(item, i, name)
-    item.recipe.name = name
-    item.recipe.save
-    @recipename_entry.text = item.recipe.name
+  def headerData(section, orientation, role=Qt::DisplayRole)
+    invalid = Qt::Variant.new
+    return invalid unless role == Qt::DisplayRole
+
+    v = case orientation
+        when Qt::Horizontal
+          ["Quantity","Measure","Food","Modifier"][section]
+        when Qt::Vertical
+          section
+        end
+    return Qt::Variant.new(v)
   end
 
-  def recipename_changed(name)
-    recipe.name = name
-    @shelf.triggerUpdate
+  def flags(index)
+    return Qt::ItemIsEnabled unless index.isValid
+    return Qt::ItemIsEditable | super(index)
   end
 
-  %w{author tottime yields }.each do |i|
-    eval "def #{i}_changed(s); recipe.#{i} = s; end"
-  end
-  %w{notes directions}.each do |i|
-    eval "def #{i}_changed(); recipe.#{i} = @#{i}_edit.text; end"
-  end
-
-  def ingredient_current_changed(row,col)
-    oldrow = @current_ingredient_row
-    unless oldrow.nil?
-      i = self.recipe.ingredients[oldrow]
-      unless i.nil?
-	if oldrow != row and (0..4).select {|j| 
-	    t = @ingredients_table.text(oldrow,j)
-	    ! (t.nil? or t.empty?)
-	  }.empty?
-	  delete_ingredient(oldrow)
-	end
+  def setData(index, variant, role)
+    if index.isValid and role == Qt::EditRole
+      s = variant.toString
+      i = ingredients[index.row]
+      case index.column
+      when 0
+        i.quantity = s.to_f
+      when 1
+        i.measure ||= Measure.new
+        i.measure.name = s
+        i.measure.save
+      when 2
+        i.food ||= Food.new
+        i.food.name = s
+        i.food.save
+      when 3
+        i.modifier = s
       end
-    end
+      i.save
 
-    @current_ingredient_row = row
-  end
-
-  def ingredient_value_changed(row,col)
-    i = recipe.ingredients[row]
-    if i.nil?
-      i = recipe.ingredients.build(:position => row)
-    end
-    t = @ingredients_table.text(row,col)
-    case col
-    when 0 # quantity
-      i.quantity = t.nil? ? nil : t.to_f
-    when 1 # measure
-      # TODO - reuse, duh
-      i.measure = Measure.new(:name => t)
-    when 2 # food
-      # TODO - reuse, duh
-      i.food = Food.new(:name => t)
-    when 3 # modifier
-      i.modifier = t
-    end
-
-    # you can never get to the end. buahahaha
-    if row == @ingredients_table.numRows - 1
-      @ingredients_table.numRows += 1
-    end
-  end
-
-  def ingredient_row_moved(section, from, to)
-    i = recipe.ingredients[from]
-    if i.nil?
-      puts "moving last row: TODO"
+      emit dataChanged(index, index)
+      return true
     else
-      i.position = to
+      return false
     end
   end
+end
 
-  def save
-    recipe.save unless recipe.nil?
+class ShelfModel < Qt::AbstractItemModel
+  # TODO
+end
+
+class QtNeelix < Qt::MainWindow
+  def initialize
+    super
+
+    ## Set up the Qt Designer UI
+    # see http://doc.trolltech.com/4.2/porting4-designer.html#uic-output
+    @ui = Ui::MainWindow.new
+    @ui.setupUi(self)
+
+    ## Wire it up
+    # see http://www.kdedevelopers.org/node/2359
+    @ui.actionSave.connect(SIGNAL(:triggered), &method(:save))
+    %w{recipename author tottime yields}.each do |f|
+      eval "@ui.#{f}_entry.connect(SIGNAL('textChanged(const QString&)'),"+
+        "&method(:#{f}_changed))" 
+      eval "@ui.#{f}_entry.connect(SIGNAL(:editingFinished), &method(:save))"
+    end
+    @ui.directions_edit.connect(SIGNAL(:textChanged), 
+                                &method(:directions_changed))
+    @ui.notes_edit.connect(SIGNAL(:textChanged), &method(:notes_changed))
+    @ui.actionAbout.connect(SIGNAL(:triggered), &method(:about))
+
+    self.recipe = Recipe.find(:all).first || Recipe.new
+
+    @ui.ingredients_table.model = IngredientTableModel.new(self.recipe)
+
+    ObjectSpace.define_finalizer(self, proc { @recipe.save unless @recipe.nil?})
+  end
+
+  def recipename_changed(s)
+    recipe.name = s
+  end
+
+  %w{author tottime yields}.each do |f|
+    eval "def #{f}_changed(s); recipe.#{f} = s; end"
+  end
+
+  def directions_changed
+    recipe.directions = @ui.directions_edit.to_plain_text
+  end
+
+  def notes_changed
+    recipe.notes = @ui.notes_edit.to_plain_text
   end
 
   def recipe
-    return nil if @shelf.current_item.nil?
-    @shelf.current_item.recipe 
+    @recipe || Recipe.new
+  end
+
+  def recipe=(r)
+    @recipe.save unless @recipe.nil?
+    @recipe = r
+    return if r.nil?
+    @ui.recipename_entry.text = r.name
+    @ui.author_entry.text = r.author
+    @ui.tottime_entry.text = r.tottime
+    @ui.yields_entry.text = r.yields
+    @ui.directions_edit.text = r.directions
+    @ui.notes_edit.text = r.notes
+  end
+
+  def save
+    # XXX Can we save the whole db (any changed recipes)?
+    recipe.save
+  end
+
+  def about
+    u = Ui::AboutDialog.new
+    w = Qt::Dialog.new
+    u.setupUi(w)
+    w.exec
   end
 end

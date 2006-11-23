@@ -11,8 +11,7 @@ app.open(dbfile)
 if $0 == __FILE__
   require 'neelix/view/qt'
   a = Qt::Application.new(ARGV)
-  w = NeelixMainWindow.new
-  a.mainWidget = w
+  w = QtNeelix.new
   w.show
   a.exec
 end

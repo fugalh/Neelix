@@ -286,7 +286,7 @@
                </item>
               </layout>
              </widget>
-             <widget class="QTabWidget" name="editTab_3" >
+             <widget class="QTabWidget" name="editTab" >
               <property name="enabled" >
                <bool>true</bool>
               </property>
@@ -297,12 +297,6 @@
                 <horstretch>0</horstretch>
                 <verstretch>0</verstretch>
                </sizepolicy>
-              </property>
-              <property name="tabPosition" >
-               <enum>QTabWidget::South</enum>
-              </property>
-              <property name="currentIndex" >
-               <number>0</number>
               </property>
               <widget class="QWidget" name="directions_tab" >
                <attribute name="title" >
@@ -434,13 +428,6 @@
      <height>22</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menuFile" >
-    <property name="title" >
-     <string>File</string>
-    </property>
-    <addaction name="actionSave" />
-    <addaction name="actionExit" />
-   </widget>
    <widget class="QMenu" name="menuEdit" >
     <property name="title" >
      <string>Edit</string>
@@ -450,6 +437,13 @@
     <addaction name="separator" />
     <addaction name="actionDelete_Recipe" />
     <addaction name="actionDelete_Ingredient" />
+   </widget>
+   <widget class="QMenu" name="menuFile" >
+    <property name="title" >
+     <string>File</string>
+    </property>
+    <addaction name="actionSave" />
+    <addaction name="actionExit" />
    </widget>
    <widget class="QMenu" name="menuHelp" >
     <property name="title" >
@@ -466,6 +460,9 @@
    <property name="text" >
     <string>Save</string>
    </property>
+   <property name="shortcut" >
+    <string>Ctrl+S</string>
+   </property>
   </action>
   <action name="actionExit" >
    <property name="text" >
@@ -478,16 +475,25 @@
    </property>
   </action>
   <action name="actionAdd_Ingredient" >
+   <property name="enabled" >
+    <bool>false</bool>
+   </property>
    <property name="text" >
     <string>Add Ingredient</string>
    </property>
   </action>
   <action name="actionDelete_Recipe" >
+   <property name="enabled" >
+    <bool>false</bool>
+   </property>
    <property name="text" >
     <string>Delete Recipe</string>
    </property>
   </action>
   <action name="actionDelete_Ingredient" >
+   <property name="enabled" >
+    <bool>false</bool>
+   </property>
    <property name="text" >
     <string>Delete Ingredient</string>
    </property>
@@ -507,8 +513,25 @@
   <tabstop>ingredients_table</tabstop>
   <tabstop>directions_edit</tabstop>
   <tabstop>notes_edit</tabstop>
-  <tabstop>editTab_3</tabstop>
+  <tabstop>editTab</tabstop>
  </tabstops>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>actionExit</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>393</x>
+     <y>265</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>
