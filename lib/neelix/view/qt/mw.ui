@@ -1,840 +1,514 @@
-<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
-<class>NeelixMainWindowBase</class>
-<widget class="QMainWindow">
-    <property name="name">
-        <cstring>NeelixMainWindowBase</cstring>
+<ui version="4.0" >
+ <author>Hans Fugal</author>
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>788</width>
+    <height>532</height>
+   </rect>
+  </property>
+  <property name="windowTitle" >
+   <string>Neelix</string>
+  </property>
+  <property name="windowIcon" >
+   <iconset>../../../../data/neelix/chef.png</iconset>
+  </property>
+  <widget class="QWidget" name="centralwidget" >
+   <layout class="QVBoxLayout" >
+    <property name="margin" >
+     <number>9</number>
     </property>
-    <property name="geometry">
-        <rect>
-            <x>0</x>
-            <y>0</y>
-            <width>700</width>
-            <height>550</height>
-        </rect>
+    <property name="spacing" >
+     <number>6</number>
     </property>
-    <property name="caption">
-        <string>Neelix</string>
-        <comment>Recipe Management System</comment>
-    </property>
-    <property name="icon">
-        <pixmap>image0</pixmap>
-    </property>
-    <property name="iconText">
-        <string>Neelix</string>
-    </property>
-    <vbox>
-        <property name="name">
-            <cstring>unnamed</cstring>
+    <item>
+     <widget class="QSplitter" name="splitter" >
+      <property name="orientation" >
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <widget class="QTreeView" name="shelf" >
+       <property name="sizePolicy" >
+        <sizepolicy>
+         <hsizetype>5</hsizetype>
+         <vsizetype>7</vsizetype>
+         <horstretch>1</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+      </widget>
+      <widget class="QStackedWidget" name="counter" >
+       <property name="sizePolicy" >
+        <sizepolicy>
+         <hsizetype>7</hsizetype>
+         <vsizetype>7</vsizetype>
+         <horstretch>2</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="currentIndex" >
+        <number>0</number>
+       </property>
+       <widget class="QWidget" name="recipe_page" >
+        <property name="sizePolicy" >
+         <sizepolicy>
+          <hsizetype>7</hsizetype>
+          <vsizetype>5</vsizetype>
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
         </property>
-        <widget class="QSplitter">
-            <property name="name">
-                <cstring>splitter5</cstring>
-            </property>
-            <property name="orientation">
-                <enum>Horizontal</enum>
-            </property>
-            <widget class="QListView">
-                <column>
-                    <property name="text">
-                        <string>Recipes</string>
-                    </property>
-                    <property name="clickable">
-                        <bool>false</bool>
-                    </property>
-                    <property name="resizable">
-                        <bool>true</bool>
-                    </property>
-                </column>
-                <property name="name">
-                    <cstring>shelf</cstring>
-                </property>
-                <property name="sizePolicy">
+        <layout class="QVBoxLayout" >
+         <property name="margin" >
+          <number>9</number>
+         </property>
+         <property name="spacing" >
+          <number>6</number>
+         </property>
+         <item>
+          <layout class="QVBoxLayout" >
+           <property name="margin" >
+            <number>0</number>
+           </property>
+           <property name="spacing" >
+            <number>6</number>
+           </property>
+           <item>
+            <layout class="QGridLayout" >
+             <property name="margin" >
+              <number>0</number>
+             </property>
+             <property name="spacing" >
+              <number>6</number>
+             </property>
+             <item row="0" column="1" >
+              <widget class="QLineEdit" name="recipename_entry" >
+               <property name="sizePolicy" >
+                <sizepolicy>
+                 <hsizetype>7</hsizetype>
+                 <vsizetype>0</vsizetype>
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1" >
+              <widget class="QLineEdit" name="author_entry" >
+               <property name="sizePolicy" >
+                <sizepolicy>
+                 <hsizetype>7</hsizetype>
+                 <vsizetype>0</vsizetype>
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="2" >
+              <widget class="QLabel" name="textLabel5" >
+               <property name="text" >
+                <string>Preparation Time</string>
+               </property>
+               <property name="alignment" >
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+               <property name="wordWrap" >
+                <bool>false</bool>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="2" >
+              <widget class="QLabel" name="textLabel6" >
+               <property name="text" >
+                <string>Yield</string>
+               </property>
+               <property name="alignment" >
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+               <property name="wordWrap" >
+                <bool>false</bool>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0" >
+              <widget class="QLabel" name="textLabel4" >
+               <property name="text" >
+                <string>Recipe Author</string>
+               </property>
+               <property name="alignment" >
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+               <property name="wordWrap" >
+                <bool>false</bool>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="3" >
+              <widget class="QLineEdit" name="yields_entry" >
+               <property name="sizePolicy" >
+                <sizepolicy>
+                 <hsizetype>5</hsizetype>
+                 <vsizetype>0</vsizetype>
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="3" >
+              <widget class="QLineEdit" name="tottime_entry" >
+               <property name="sizePolicy" >
+                <sizepolicy>
+                 <hsizetype>5</hsizetype>
+                 <vsizetype>0</vsizetype>
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="0" >
+              <widget class="QLabel" name="textLabel3" >
+               <property name="text" >
+                <string>Recipe Name</string>
+               </property>
+               <property name="alignment" >
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+               <property name="wordWrap" >
+                <bool>false</bool>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <widget class="QSplitter" name="splitter2" >
+             <property name="orientation" >
+              <enum>Qt::Vertical</enum>
+             </property>
+             <widget class="QWidget" name="layoutWidget" >
+              <layout class="QHBoxLayout" >
+               <property name="margin" >
+                <number>0</number>
+               </property>
+               <property name="spacing" >
+                <number>6</number>
+               </property>
+               <item>
+                <layout class="QVBoxLayout" >
+                 <property name="margin" >
+                  <number>0</number>
+                 </property>
+                 <property name="spacing" >
+                  <number>6</number>
+                 </property>
+                 <item>
+                  <spacer>
+                   <property name="orientation" >
+                    <enum>Qt::Vertical</enum>
+                   </property>
+                   <property name="sizeType" >
+                    <enum>QSizePolicy::Expanding</enum>
+                   </property>
+                   <property name="sizeHint" >
+                    <size>
+                     <width>20</width>
+                     <height>140</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                 <item>
+                  <widget class="QToolButton" name="add_ingredient" >
+                   <property name="sizePolicy" >
                     <sizepolicy>
-                        <hsizetype>5</hsizetype>
-                        <vsizetype>7</vsizetype>
-                        <horstretch>0</horstretch>
-                        <verstretch>0</verstretch>
+                     <hsizetype>0</hsizetype>
+                     <vsizetype>0</vsizetype>
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
                     </sizepolicy>
-                </property>
-                <property name="defaultRenameAction">
-                    <enum>Accept</enum>
-                </property>
-            </widget>
-            <widget class="QWidgetStack">
-                <property name="name">
-                    <cstring>counterStack</cstring>
-                </property>
-                <property name="enabled">
-                    <bool>true</bool>
-                </property>
-                <property name="sizePolicy">
+                   </property>
+                   <property name="minimumSize" >
+                    <size>
+                     <width>20</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                   <property name="toolTip" >
+                    <string>Add a new Ingredient</string>
+                   </property>
+                   <property name="text" >
+                    <string>+</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QToolButton" name="rm_ingredient" >
+                   <property name="sizePolicy" >
                     <sizepolicy>
-                        <hsizetype>5</hsizetype>
-                        <vsizetype>7</vsizetype>
-                        <horstretch>0</horstretch>
-                        <verstretch>0</verstretch>
+                     <hsizetype>0</hsizetype>
+                     <vsizetype>0</vsizetype>
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
                     </sizepolicy>
-                </property>
-                <widget class="QWidget">
-                    <property name="name">
-                        <cstring>recipe_page</cstring>
-                    </property>
-                    <attribute name="id">
-                        <number>0</number>
-                    </attribute>
-                    <vbox>
-                        <property name="name">
-                            <cstring>unnamed</cstring>
-                        </property>
-                        <widget class="QLayoutWidget">
-                            <property name="name">
-                                <cstring>layout2</cstring>
-                            </property>
-                            <grid>
-                                <property name="name">
-                                    <cstring>unnamed_2</cstring>
-                                </property>
-                                <widget class="QLineEdit" row="0" column="1">
-                                    <property name="name">
-                                        <cstring>recipename_entry</cstring>
-                                    </property>
-                                    <property name="sizePolicy">
-                                        <sizepolicy>
-                                            <hsizetype>7</hsizetype>
-                                            <vsizetype>0</vsizetype>
-                                            <horstretch>0</horstretch>
-                                            <verstretch>0</verstretch>
-                                        </sizepolicy>
-                                    </property>
-                                </widget>
-                                <widget class="QLineEdit" row="1" column="1">
-                                    <property name="name">
-                                        <cstring>author_entry</cstring>
-                                    </property>
-                                    <property name="sizePolicy">
-                                        <sizepolicy>
-                                            <hsizetype>7</hsizetype>
-                                            <vsizetype>0</vsizetype>
-                                            <horstretch>0</horstretch>
-                                            <verstretch>0</verstretch>
-                                        </sizepolicy>
-                                    </property>
-                                </widget>
-                                <widget class="QLabel" row="0" column="2">
-                                    <property name="name">
-                                        <cstring>textLabel5</cstring>
-                                    </property>
-                                    <property name="text">
-                                        <string>Preparation Time</string>
-                                    </property>
-                                    <property name="alignment">
-                                        <set>AlignVCenter|AlignRight</set>
-                                    </property>
-                                </widget>
-                                <widget class="QLabel" row="1" column="2">
-                                    <property name="name">
-                                        <cstring>textLabel6</cstring>
-                                    </property>
-                                    <property name="text">
-                                        <string>Yield</string>
-                                    </property>
-                                    <property name="alignment">
-                                        <set>AlignVCenter|AlignRight</set>
-                                    </property>
-                                </widget>
-                                <widget class="QLabel" row="1" column="0">
-                                    <property name="name">
-                                        <cstring>textLabel4</cstring>
-                                    </property>
-                                    <property name="text">
-                                        <string>Recipe Author</string>
-                                    </property>
-                                    <property name="alignment">
-                                        <set>AlignVCenter|AlignRight</set>
-                                    </property>
-                                </widget>
-                                <widget class="QLineEdit" row="1" column="3">
-                                    <property name="name">
-                                        <cstring>yields_entry</cstring>
-                                    </property>
-                                    <property name="sizePolicy">
-                                        <sizepolicy>
-                                            <hsizetype>5</hsizetype>
-                                            <vsizetype>0</vsizetype>
-                                            <horstretch>0</horstretch>
-                                            <verstretch>0</verstretch>
-                                        </sizepolicy>
-                                    </property>
-                                </widget>
-                                <widget class="QLineEdit" row="0" column="3">
-                                    <property name="name">
-                                        <cstring>tottime_entry</cstring>
-                                    </property>
-                                    <property name="sizePolicy">
-                                        <sizepolicy>
-                                            <hsizetype>5</hsizetype>
-                                            <vsizetype>0</vsizetype>
-                                            <horstretch>0</horstretch>
-                                            <verstretch>0</verstretch>
-                                        </sizepolicy>
-                                    </property>
-                                </widget>
-                                <widget class="QLabel" row="0" column="0">
-                                    <property name="name">
-                                        <cstring>textLabel3</cstring>
-                                    </property>
-                                    <property name="text">
-                                        <string>Recipe Name</string>
-                                    </property>
-                                    <property name="alignment">
-                                        <set>AlignVCenter|AlignRight</set>
-                                    </property>
-                                </widget>
-                            </grid>
-                        </widget>
-                        <widget class="QSplitter">
-                            <property name="name">
-                                <cstring>splitter10</cstring>
-                            </property>
-                            <property name="orientation">
-                                <enum>Vertical</enum>
-                            </property>
-                            <widget class="QLayoutWidget">
-                                <property name="name">
-                                    <cstring>layout12</cstring>
-                                </property>
-                                <hbox>
-                                    <property name="name">
-                                        <cstring>unnamed_2</cstring>
-                                    </property>
-                                    <widget class="QLayoutWidget">
-                                        <property name="name">
-                                            <cstring>layout11</cstring>
-                                        </property>
-                                        <vbox>
-                                            <property name="name">
-                                                <cstring>unnamed_2</cstring>
-                                            </property>
-                                            <spacer>
-                                                <property name="name">
-                                                    <cstring>spacer5</cstring>
-                                                </property>
-                                                <property name="orientation">
-                                                    <enum>Vertical</enum>
-                                                </property>
-                                                <property name="sizeType">
-                                                    <enum>Expanding</enum>
-                                                </property>
-                                                <property name="sizeHint">
-                                                    <size>
-                                                        <width>20</width>
-                                                        <height>140</height>
-                                                    </size>
-                                                </property>
-                                            </spacer>
-                                            <widget class="QToolButton">
-                                                <property name="name">
-                                                    <cstring>add_ingredient</cstring>
-                                                </property>
-                                                <property name="sizePolicy">
-                                                    <sizepolicy>
-                                                        <hsizetype>0</hsizetype>
-                                                        <vsizetype>0</vsizetype>
-                                                        <horstretch>0</horstretch>
-                                                        <verstretch>0</verstretch>
-                                                    </sizepolicy>
-                                                </property>
-                                                <property name="minimumSize">
-                                                    <size>
-                                                        <width>20</width>
-                                                        <height>20</height>
-                                                    </size>
-                                                </property>
-                                                <property name="text">
-                                                    <string>+</string>
-                                                </property>
-                                                <property name="toolTip" stdset="0">
-                                                    <string>Add a new Ingredient</string>
-                                                </property>
-                                            </widget>
-                                            <widget class="QToolButton">
-                                                <property name="name">
-                                                    <cstring>rm_ingredient</cstring>
-                                                </property>
-                                                <property name="sizePolicy">
-                                                    <sizepolicy>
-                                                        <hsizetype>0</hsizetype>
-                                                        <vsizetype>0</vsizetype>
-                                                        <horstretch>0</horstretch>
-                                                        <verstretch>0</verstretch>
-                                                    </sizepolicy>
-                                                </property>
-                                                <property name="minimumSize">
-                                                    <size>
-                                                        <width>20</width>
-                                                        <height>20</height>
-                                                    </size>
-                                                </property>
-                                                <property name="text">
-                                                    <string>-</string>
-                                                </property>
-                                                <property name="toolTip" stdset="0">
-                                                    <string>Delete this Ingredient</string>
-                                                </property>
-                                            </widget>
-                                        </vbox>
-                                    </widget>
-                                    <widget class="QTable">
-                                        <column>
-                                            <property name="text">
-                                                <string>Quantity</string>
-                                            </property>
-                                        </column>
-                                        <column>
-                                            <property name="text">
-                                                <string>Measure</string>
-                                            </property>
-                                        </column>
-                                        <column>
-                                            <property name="text">
-                                                <string>Ingredient</string>
-                                            </property>
-                                        </column>
-                                        <column>
-                                            <property name="text">
-                                                <string>Modifier</string>
-                                            </property>
-                                        </column>
-                                        <property name="name">
-                                            <cstring>ingredients_table</cstring>
-                                        </property>
-                                        <property name="vScrollBarMode">
-                                            <enum>AlwaysOn</enum>
-                                        </property>
-                                        <property name="hScrollBarMode">
-                                            <enum>AlwaysOn</enum>
-                                        </property>
-                                        <property name="numRows">
-                                            <number>0</number>
-                                        </property>
-                                        <property name="numCols">
-                                            <number>4</number>
-                                        </property>
-                                        <property name="rowMovingEnabled">
-                                            <bool>true</bool>
-                                        </property>
-                                        <property name="selectionMode">
-                                            <enum>SingleRow</enum>
-                                        </property>
-                                    </widget>
-                                </hbox>
-                            </widget>
-                            <widget class="QTabWidget">
-                                <property name="name">
-                                    <cstring>editTab</cstring>
-                                </property>
-                                <property name="enabled">
-                                    <bool>true</bool>
-                                </property>
-                                <property name="sizePolicy">
-                                    <sizepolicy>
-                                        <hsizetype>7</hsizetype>
-                                        <vsizetype>3</vsizetype>
-                                        <horstretch>0</horstretch>
-                                        <verstretch>0</verstretch>
-                                    </sizepolicy>
-                                </property>
-                                <property name="tabPosition">
-                                    <enum>Bottom</enum>
-                                </property>
-                                <widget class="QWidget">
-                                    <property name="name">
-                                        <cstring>directions_tab</cstring>
-                                    </property>
-                                    <attribute name="title">
-                                        <string>&amp;Directions</string>
-                                    </attribute>
-                                    <hbox>
-                                        <property name="name">
-                                            <cstring>unnamed_2</cstring>
-                                        </property>
-                                        <widget class="QTextEdit">
-                                            <property name="name">
-                                                <cstring>directions_edit</cstring>
-                                            </property>
-                                            <property name="enabled">
-                                                <bool>true</bool>
-                                            </property>
-                                            <property name="textFormat">
-                                                <enum>PlainText</enum>
-                                            </property>
-                                            <property name="wordWrap">
-                                                <enum>FixedColumnWidth</enum>
-                                            </property>
-                                            <property name="wrapColumnOrWidth">
-                                                <number>72</number>
-                                            </property>
-                                            <property name="tabChangesFocus">
-                                                <bool>true</bool>
-                                            </property>
-                                        </widget>
-                                    </hbox>
-                                </widget>
-                                <widget class="QWidget">
-                                    <property name="name">
-                                        <cstring>notes_tab</cstring>
-                                    </property>
-                                    <attribute name="title">
-                                        <string>&amp;Notes</string>
-                                    </attribute>
-                                    <hbox>
-                                        <property name="name">
-                                            <cstring>unnamed_2</cstring>
-                                        </property>
-                                        <widget class="QTextEdit">
-                                            <property name="name">
-                                                <cstring>notes_edit</cstring>
-                                            </property>
-                                            <property name="textFormat">
-                                                <enum>PlainText</enum>
-                                            </property>
-                                            <property name="wordWrap">
-                                                <enum>FixedColumnWidth</enum>
-                                            </property>
-                                            <property name="wrapColumnOrWidth">
-                                                <number>72</number>
-                                            </property>
-                                            <property name="tabChangesFocus">
-                                                <bool>true</bool>
-                                            </property>
-                                        </widget>
-                                    </hbox>
-                                </widget>
-                            </widget>
-                        </widget>
-                    </vbox>
+                   </property>
+                   <property name="minimumSize" >
+                    <size>
+                     <width>20</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                   <property name="toolTip" >
+                    <string>Delete this Ingredient</string>
+                   </property>
+                   <property name="text" >
+                    <string>-</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <widget class="QTableView" name="ingredients_table" >
+                 <property name="sizePolicy" >
+                  <sizepolicy>
+                   <hsizetype>7</hsizetype>
+                   <vsizetype>5</vsizetype>
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
                 </widget>
+               </item>
+              </layout>
+             </widget>
+             <widget class="QTabWidget" name="editTab_3" >
+              <property name="enabled" >
+               <bool>true</bool>
+              </property>
+              <property name="sizePolicy" >
+               <sizepolicy>
+                <hsizetype>7</hsizetype>
+                <vsizetype>5</vsizetype>
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="tabPosition" >
+               <enum>QTabWidget::South</enum>
+              </property>
+              <property name="currentIndex" >
+               <number>0</number>
+              </property>
+              <widget class="QWidget" name="directions_tab" >
+               <attribute name="title" >
+                <string>&amp;Directions</string>
+               </attribute>
+               <layout class="QHBoxLayout" >
+                <property name="margin" >
+                 <number>0</number>
+                </property>
+                <property name="spacing" >
+                 <number>6</number>
+                </property>
+                <item>
+                 <widget class="QTextEdit" name="directions_edit" />
+                </item>
+               </layout>
+              </widget>
+              <widget class="QWidget" name="notes_tab" >
+               <attribute name="title" >
+                <string>&amp;Notes</string>
+               </attribute>
+               <layout class="QHBoxLayout" >
+                <property name="margin" >
+                 <number>0</number>
+                </property>
+                <property name="spacing" >
+                 <number>6</number>
+                </property>
+                <item>
+                 <widget class="QTextEdit" name="notes_edit" />
+                </item>
+               </layout>
+              </widget>
+             </widget>
             </widget>
-        </widget>
-        <widget class="QLayoutWidget">
-            <property name="name">
-                <cstring>layout5</cstring>
-            </property>
-            <hbox>
-                <property name="name">
-                    <cstring>unnamed</cstring>
-                </property>
-                <widget class="QToolButton">
-                    <property name="name">
-                        <cstring>add_recipe</cstring>
-                    </property>
-                    <property name="sizePolicy">
-                        <sizepolicy>
-                            <hsizetype>0</hsizetype>
-                            <vsizetype>0</vsizetype>
-                            <horstretch>0</horstretch>
-                            <verstretch>0</verstretch>
-                        </sizepolicy>
-                    </property>
-                    <property name="minimumSize">
-                        <size>
-                            <width>20</width>
-                            <height>20</height>
-                        </size>
-                    </property>
-                    <property name="focusPolicy">
-                        <enum>TabFocus</enum>
-                    </property>
-                    <property name="text">
-                        <string>+</string>
-                    </property>
-                    <property name="toolTip" stdset="0">
-                        <string>Add a Recipe</string>
-                    </property>
-                </widget>
-                <widget class="QToolButton">
-                    <property name="name">
-                        <cstring>rm_recipe</cstring>
-                    </property>
-                    <property name="sizePolicy">
-                        <sizepolicy>
-                            <hsizetype>0</hsizetype>
-                            <vsizetype>0</vsizetype>
-                            <horstretch>0</horstretch>
-                            <verstretch>0</verstretch>
-                        </sizepolicy>
-                    </property>
-                    <property name="minimumSize">
-                        <size>
-                            <width>20</width>
-                            <height>20</height>
-                        </size>
-                    </property>
-                    <property name="text">
-                        <string>-</string>
-                    </property>
-                    <property name="toolTip" stdset="0">
-                        <string>Delete the Current Recipe</string>
-                    </property>
-                </widget>
-                <spacer>
-                    <property name="name">
-                        <cstring>spacer3</cstring>
-                    </property>
-                    <property name="orientation">
-                        <enum>Horizontal</enum>
-                    </property>
-                    <property name="sizeType">
-                        <enum>Expanding</enum>
-                    </property>
-                    <property name="sizeHint">
-                        <size>
-                            <width>723</width>
-                            <height>20</height>
-                        </size>
-                    </property>
-                </spacer>
-            </hbox>
-        </widget>
-    </vbox>
-</widget>
-<menubar>
-    <property name="name">
-        <cstring>MenuBar</cstring>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+     </widget>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" >
+      <property name="margin" >
+       <number>0</number>
+      </property>
+      <property name="spacing" >
+       <number>6</number>
+      </property>
+      <item>
+       <widget class="QToolButton" name="add_recipe" >
+        <property name="sizePolicy" >
+         <sizepolicy>
+          <hsizetype>0</hsizetype>
+          <vsizetype>0</vsizetype>
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize" >
+         <size>
+          <width>20</width>
+          <height>20</height>
+         </size>
+        </property>
+        <property name="focusPolicy" >
+         <enum>Qt::TabFocus</enum>
+        </property>
+        <property name="toolTip" >
+         <string>Add a Recipe</string>
+        </property>
+        <property name="text" >
+         <string>+</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QToolButton" name="rm_recipe" >
+        <property name="sizePolicy" >
+         <sizepolicy>
+          <hsizetype>0</hsizetype>
+          <vsizetype>0</vsizetype>
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize" >
+         <size>
+          <width>20</width>
+          <height>20</height>
+         </size>
+        </property>
+        <property name="toolTip" >
+         <string>Delete the Current Recipe</string>
+        </property>
+        <property name="text" >
+         <string>-</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer>
+        <property name="orientation" >
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeType" >
+         <enum>QSizePolicy::Expanding</enum>
+        </property>
+        <property name="sizeHint" >
+         <size>
+          <width>723</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar" >
+   <property name="geometry" >
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>788</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile" >
+    <property name="title" >
+     <string>File</string>
     </property>
-    <item text="&amp;File" name="fileMenu">
-        <separator/>
-        <action name="save_action"/>
-        <action name="fileExitAction"/>
-    </item>
-    <item text="&amp;Edit" name="unnamed">
-        <action name="editAdd_RecipeAction"/>
-        <action name="editAdd_IngredientAction"/>
-        <separator/>
-        <action name="rm_recipe_action"/>
-        <action name="rm_ingredient_action"/>
-    </item>
-    <item text="&amp;Help" name="helpMenu">
-        <action name="helpAboutAction"/>
-    </item>
-</menubar>
-<toolbars>
-</toolbars>
-<actions>
-    <action>
-        <property name="name">
-            <cstring>fileNewAction</cstring>
-        </property>
-        <property name="iconSet">
-            <iconset>image1</iconset>
-        </property>
-        <property name="text">
-            <string>New</string>
-        </property>
-        <property name="menuText">
-            <string>&amp;New</string>
-        </property>
-        <property name="accel">
-            <string>Ctrl+N</string>
-        </property>
-    </action>
-    <action>
-        <property name="name">
-            <cstring>fileOpenAction</cstring>
-        </property>
-        <property name="iconSet">
-            <iconset>image2</iconset>
-        </property>
-        <property name="text">
-            <string>Open</string>
-        </property>
-        <property name="menuText">
-            <string>&amp;Open...</string>
-        </property>
-        <property name="accel">
-            <string>Ctrl+O</string>
-        </property>
-    </action>
-    <action>
-        <property name="name">
-            <cstring>fileSaveAsAction</cstring>
-        </property>
-        <property name="text">
-            <string>Save As</string>
-        </property>
-        <property name="menuText">
-            <string>Save &amp;As...</string>
-        </property>
-        <property name="accel">
-            <string></string>
-        </property>
-    </action>
-    <action>
-        <property name="name">
-            <cstring>fileExitAction</cstring>
-        </property>
-        <property name="text">
-            <string>Exit</string>
-        </property>
-        <property name="menuText">
-            <string>E&amp;xit</string>
-        </property>
-        <property name="accel">
-            <string></string>
-        </property>
-    </action>
-    <action>
-        <property name="name">
-            <cstring>helpAboutAction</cstring>
-        </property>
-        <property name="text">
-            <string>&amp;About</string>
-        </property>
-        <property name="menuText">
-            <string>&amp;About</string>
-        </property>
-        <property name="accel">
-            <string></string>
-        </property>
-    </action>
-    <action>
-        <property name="name">
-            <cstring>editAdd_RecipeAction</cstring>
-        </property>
-        <property name="enabled">
-            <bool>true</bool>
-        </property>
-        <property name="text">
-            <string>Add &amp;Recipe</string>
-        </property>
-        <property name="menuText">
-            <string>Add &amp;Recipe</string>
-        </property>
-        <property name="toolTip">
-            <string>Add Recipe</string>
-        </property>
-    </action>
-    <action>
-        <property name="name">
-            <cstring>editAdd_IngredientAction</cstring>
-        </property>
-        <property name="enabled">
-            <bool>false</bool>
-        </property>
-        <property name="text">
-            <string>Add &amp;Ingredient</string>
-        </property>
-        <property name="menuText">
-            <string>Add &amp;Ingredient</string>
-        </property>
-        <property name="toolTip">
-            <string>Add Ingredient</string>
-        </property>
-    </action>
-    <action>
-        <property name="name">
-            <cstring>rm_ingredient_action</cstring>
-        </property>
-        <property name="enabled">
-            <bool>false</bool>
-        </property>
-        <property name="text">
-            <string>Delete Ingredient</string>
-        </property>
-        <property name="menuText">
-            <string>Delete Ingredient</string>
-        </property>
-    </action>
-    <action>
-        <property name="name">
-            <cstring>rm_recipe_action</cstring>
-        </property>
-        <property name="enabled">
-            <bool>false</bool>
-        </property>
-        <property name="text">
-            <string>Delete Recipe</string>
-        </property>
-    </action>
-    <action>
-        <property name="name">
-            <cstring>save_action</cstring>
-        </property>
-        <property name="text">
-            <string>Save</string>
-        </property>
-        <property name="menuText">
-            <string>&amp;Save</string>
-        </property>
-        <property name="toolTip">
-            <string>Save</string>
-        </property>
-        <property name="accel">
-            <string>Ctrl+S</string>
-        </property>
-    </action>
-</actions>
-<images>
-    <image name="image0">
-        <data format="PNG" length="16287">89504e470d0a1a0a0000000d4948445200000080000000790806000000f1a3291a0000200049444154789cedbd69b02dc77d1ff6fb77cf76e62c777f2b402c04090a24c545123711142571554431761259b6e3944b29a75ce5726257625b1fe24a52fae24ad9a6654ab422db5129966527542c87a2244a8e2812a468d12129ae2009ae1008e0e1adf79e7d66bafb9f0fdd3dd33377ce7d0f7817245d42579dbae79ed97afabfaf0d3c379e1bcf8d3fbd83bed313f88f614ca74720225495caaab2920c461cc75acaa80098b7b7b7bfd3537cc6e34f1502cc66538cffcc1847ff662a058914a0113312661e0148983965d631336b0025331f69ad9742c88131fc7680df620c0f609801ac99f93108ba0ae02b001e0570688cb926a5744f34108218a08594b21c0e87264d53050044df1d4bffdd318ba7318c318e1a352d178b542b3564c21eb3898d61000c66fb624404104929c419104600f684907710d11d045c008973003266ce99390690306b49440640c58c39b35931536a0cdf4584cc4e82c1ec3e0033b822a20533cf8d31870031b306b381316c8cd197997926849811d1d7a5948f10894784908f67597ab4bdbd5568ad1145d1b77d3dbf6b1160b69c623418e3f0e83036c6ec31f37d00ce80e92233b688e8021b3ecbc65c64f019b6146c2f768800109899000c41480144209282880409c4490c1202c6183033b4d635824591041181a839ce80053733c080fb05feb9e13dfcdf7a4ef60c100926222584b846448f13d13788e8cbc6982f309b2f339bcf317375efbdf77e5bd6f9bb0e018e8e6610524055ea021bf3a3cce62dccfc2200f70218802805889899e00051bf0591058c3130eea3b586d6ba61b9041009c45184244b41441650c640bb6bc08090024288fab8d6babe2f83618ca37db8398423b8c618e31e4b88e2a8be27115984511a4a2bd65a575a554f1445f16f8dd69f2321bf48427e716fffe070319fe1252ff99e6765bdbf2b10e0f0e8068414a42bbdcd8cfb98f12091f87330fc3206a704aa179a010b440640041216e860ae177b1305fac59752424a09080298a1b581d60a6c18424a08224010aaaac26ab582aa2a6855359c8019da1890bba79412420800000961af77dfc10ca5ec75499a228e638be0aac2623ec76c3a435515d0467b2464225451941c09293f4d247e338ae4bf1b8fc75f5d2e97ea075ef5aafafea731be2308309dce414452299533f39dc698e783f935ccfc5a002f06618f20ac26c55c532f338304818400a1f98dd9808da5467688c0c6023e54b688c822814304c0b171b67a834510a0280a4ca7532c1673acd705c006e43887a75c8f48711c238e630080520acc5c23833f56550a5a6b4819218a63545581a72e3f81ab572e63b55a818d82d1babe564a8928c9102729e238a9b274f027918c7e4b4af9de244bfff8a9a79e5abce635afc5b973676f1b16df1604383a9a01206855650c730718af36ccaf65c68b88e81e663e4ba00198050700f70b09a0669b1021e01930961a0d9b16850a12886a6dbcb9879412428a16d71642d4f27b3e9fe1fab5ab981e4da194821002423a9d00b27e76144588e3184992208e6318636a04f0cf4ad3145996412985a228a19446555578eaf2b770e5ea9335c782b608a094aa7510080912124992204d874892c4c47172258ad38f6459f62bf920ffe06c3e5bbeec25afc099f3fbcf1836cf1a025cbe7c19069a2211ef18c32f22120f12f02a667e00ccf738a58d8804000b3000ad056c2896002f06d000df53bbd106c6683050b3634fa9f02280011204212c0284940c00aaaab05ccc71e5ea655cbe72195a690821902409a248228a220821c18641647ff71f2184d511827909213018e4c8b201b4d6582ce698cd66b87aed32ae5d7d126c3400c018d5e820ee1e1e912da71290320604719c2414450906d9f05a9264ef4fd3f4e7cf5db8f8c9d96ccaaf7dcd6b9e119c4e15018e6e4c21a59455559d2581fb85103fa28d7e8352fa01adcd0e98a5e5b8cdc2d7400efe0f3f00c01450bc3bc72f9452aa2d8b1dd57beaf21a3b1141108183370e01b65a2e71e3fa555cbaf424e68b390038ea4b9124498358204451037c193c2f9c771445c8b20192244555291c1e5ec7952b9771e9d2e3288a050433b451d05a3500f7488b668d080220023bd127854414a5889384d324ff4a9cc4ff20cf07ff7ab55a4def7bfef3f1c2fb9f9eb278db86a736151efbe621b676d2ac52e6654aa9ff5c4af96621c49d44b41dc7918824a32a4bacd76b28a500b495a790e5936cfef71a3d1b76da7b033d360ca32d950a211c8536d77ac084a69d61b6ba82bb270901a335cab2c4623ec3d1d12196ab0598358cb1323d8ee316f209291a25120da0fcbbd8f78a10c75634582bc23e63363f44b15e02aca05ac0a75adc79715413008bfabe9012208770da9052e50b017ed70afcea2c1bfcec673ff3996f7ee1e12fe0c50fbcf896e1f78c1160b15861315b607ab89c8cc7e2f5aa2aff4bb0f811118983288a845f1c30dbc58a63286595212f2bfdc2f91717528204d554ebed2b12d61ef7fcca021416e8c1c27b0a0a15417f2f63b463b1ee0598c15a436b85f57a85f97c8ec572e13807c11885b2b4b2de035c080129a2fab706e0b2fe6b3f11a48c20a4f521545589f57a85c5620ea315000d63746daa1235ba4a8d68deaa20a7f4ba8f089e11c731a4943933ffe5aaaa2eeeed9df91b5ffae297bef4993ffe345ef68a97df121c9fb60898cde658af5710420e8d310f32e3afc2f00f13d1584a494992b0b0ce95fade420830015561b940511460e6961245a201b0b7ef6b932f14071d51e017cab351a30d5455a1aaaafa78a8e4d54a162c855b536f81eb37aee1c68debf5754a9530c6204d07188d46180c0648930c49923abd20aa59bd45008294b105bc474602aaaac4ece8084f5e7a02dffad637a1cb02c6146d1f814380f03d6b71020912022ca9e674914c104509d234b366a510008889e44344f86fa5909f2dca126f79eb5b6e0acf5be60045556176344355a99420dea82bfd970df39b09d80540524a7693a1908531338cfb3f8a2cf5784ed068e5d2fa709cb7cd03b5f6b87143f516da4e1d248661c0688d4a55b5d3a72c0a686d6a192da5ac1d3a4aa9c609a33594aa501485bb46b5c48c3dbfacc5969f7f48f15114d7f7f77ffdb5da6854a5bd7fe1eecf3030ba51f4dc9310d262a80b000630d65c6544f63ac94ea7919022429cc4902222227a43a5aa7f5016e55f27e04b1ffdf04378fd0fbde1f611603a9de30f3ff4105efaf297bf4029f5d7d8f05f00f38175ba937f799252b614ab86421b8ab58b16d51ab68c22678b5b0d1d64176fbd5e836a6bbfad38865c006828b971c3565664a0ad647ac4b2a2c0406b539b666559c2186bab738074555942a9ca2170ecd96ec0eaa59d37503fb34600a56b6e54144eff31caaf067cdc82d9802894fdf6b8d501180c0d2267f1304350048ed89d2320c8fa2306830119c33f3a9b4dff7ea5aabf5a19fdad8f7cf8213c780212dc1401ae5fbf016354fcd297bffc9dc698bf438c5712204c40e51ea89eca3c763b516065a18bd0884822327691a33876f2dd025a10c180b198cf313d3a449e8face9c5a645997e7844f0c06f296b01d0fd1cfd9c94aa0219ac5056450d6421647d2fd422a504181dd92f034e656a24a84d5363608ce53245b946b15a828cbb2fbcc6df1047a3fd9b00d9bd4e03800d2025622644d29a8dfe3e4208c471822ccb114592b5d66fbe76edeaff5c16e5df06e1fa49f0159b0e4c8fa628aa358c36f79645f93f1aaddf03e0fb894884b2d57bc33cb0edc2fa489809143afbae9194489314699a40461282aceb5408018605e6743ac572b9445595d0da8a8bca5192ff28a56acaf7df1b73aad19c43252d142d1e4896fa0b1807c410cfacaf5ed5c8213b0a67fd529d7b365cd0fe5f146b14c53ab86fe39ea80d1e2792bc582acbd27d0a14c50aeba240595add8180da47209cb328495287a011e5f9302112ff5559adffc62041f2bbbff5be8d08d0cb01ae5fbf0e10cba31bd37718cd7f97402f25a2d833e4aef6eea9cbbf00b301202044e08707411b6db5d848a28ed7b16786966d966b2b8f3ddbb40bd4002e54002d0b6d2821143b9e42fdfcdafe8546ce7a0433c6592ba0fa9e1680158cd64020423ce0ed71092286106db164e7da00539bca99974e5935ec381b3b4e61eae36d24728127306224806e2c07cb7925e2380d94419094125996c6d7aeaefefad562f5b9c71ffdfa7b1ffaf04378438f28388600d7af4d1147235aad6efc7966fc3d22ba28856c995835509d560aa006be9dbc5d4021da8a0d0027c31c2a79f6e6805f55cac96253eb010eabd1b0433e260e42a07ae01f077aa83f3414abdd82fafb8488acb5866603e3a8dc185323bb31c65917baa56f748755242d1235c00d816c1cf04d87805003df3e8b1027296414598047b1d34992b6e7132eda19c700d1f672b5fa5bf77ecf4b3e79edda535f3f36397444c0d1e114455960b5bafe83469bff05b0c00f43987e91bddcef02bf316fb8966721c218a3ad432670cad4ee5cad608caa81e99533ad2df51c8fbb860840084553f7d3009f5b0ba68d86d68d8e618caa01a48c86e2e311463fea4014b7ddc0c1ccac9fa158413b976f18a656ca8bb3b658f3be12ff613688a214793e413e9a60389c6030c89124a9230e8f681d31282556ebd52baedfb8f18e5fffbf7e151ffef0878ead5d8b03a84a214be2ac288aff461b73af606a429b2d6dba61a57eb25ee9b10f6f1680c8b33a8273fb83b5b1eecd60d19ac513b542e565bf45386f1e1e575b2cc260230278e53474b3fabfc6515c63b63aef212b185d812b0d411180b61fa1eb09ec7ef708a694425556504a03ec7524533ba6ec3d750b399ab5608004d224c7f6ee017677cf62349a20cb32c4b1f545c045c375100af7d73abd2caad6ebffeca7fedc5ffa57d72e5fbadc5dbb7a358f5cf44b69f5bd44f4c391942dac0a29df9b76567e7a97a646c3823c20da8a1211200339da0ae8180363da4004d052f442ea6b801f52beec45001f26ae356a0422a083181e18aaaaacf60f204d520054536748e5a1b60ea0e39534500e89b9163796f2430a0f293fe4a60021cb721c1c9cc7d97377627fff2cb6b6b690e739d2346d2c2fb6702acbc27d4afb4c6ff554e52ba6f3f91b1e7ffc71fc878ffffbd6fad51ca052159e7af23ace9cdf7dbb20bac3033a8c713b8f530b706df3ab310ddbb2971caeb1cdc1206e2d7af77a8f6861aa961f712cd0b84ea945b95de421a2dabfd2e80f8de61dcebf91ff4e165705545962301821cf879032728b5cb6902db4d943d3b3b632ca124a5925d0e806d01ed142b1128a102925f27c8cbd83f3387bf622c6e32da7e9c78eb0029d462b94dab438c97abd76a20d50e05159957fe67b5ffecaf75fb972a531474204d0cae0ecc5bd9156fa35326a9c1d9e7d36188f0dc06f163aa4cc16b5826a2748df752135475154739e361208248938c682fbf4946e7c0035f507c0378d5e60e3071aba2a1ddb56c8d20cc37c88384aa0b542511475c0c78aaa9e84935a24580ea65505ad34744de50d276989265853348e134c263b3838388fddfd33c8f331e2b8f1b328a5a1b4ae4d5410ea8412066a6fa8aa2a67410045513c78e9a9a71ed04a7dea031ff800def6b6b7b511c03a167037917849b890de751b02d52f605b5eb595b17e8d3d5cacc616f6d77617328aa216a7b06c0df5ef5617391e420eefe5cd4d6686e1ae79d556528d3130aa8276fe0722813c1f623018404412da51705996353576f50eff7f68d39baab4481050fe71a7154014211f8cb1b77b16bb07e7301a4f90240988c8b27565fd025e247689c67f574a61b55ea15255bdee4aa9338bc5e2deaa2a3f95a459fdce11004c0f67b87178034992bc9499f73d9c4276dc35a3ea056e69bd7d000d6524d77a7cbfd68c7a41ac5346d72fe559655114ce272f01c85a2c85ca57eb13987c2132794a34460508a0a17405a52b677a490c8623246956cfdb3b8f945248924d22af79465516a802edbcfbde7e6d8588301a8e71f6dc1dd8d93d83413e841002555561bd5e615dac50551609d8cd4d88a80e57d72171171f504a61b55ad835113529045e39b7d680cd81fbc57ff28b60c3af00738660a1fa6cdb4de6581bf0f52fc1559e1edb9a7857a9b2b977e2185b0750876fad776e33f5b7e6c1e1f3ec4f56162b9b8ce9e6a0b535c9b443803849900f47902e76e111a051d81aff4177aede0228abd23a923a6bd40e234718e6135cb87017ce9cb988413e0400acd76b5cbf7115d7ae5fc6747a88d56a89aaac8e11a07505c74862eb114cd30c83c10071ec193c8308ab289257a494d8dbdbabafb76708e06fffccdf4a16b3e5c5506efabf5d96e515aed0f9d000af1db0094581555eda0aa0bf2ecc8a69e428218c03f8f38ba2c06030b0f8ccc7d97e77b4b90c375a77c7a66fb470eb9849d301068311c2248dd08ef773eb033e333b96bd7685442187120815de341de0ecd9f3d8dd3f8b288e2de75015a6d3234ca73760b4862440088948c8169213910da947496d1afab54c9214a023801942c8348ae27d1bfe6ef4400158aa2aca220670a6253f37b0e870f4c9dde6fa26b8d12773fb01d4be6f376bc88b83f57a8dd07eef5ed7776f4fbdde4c7294519f6f5a261830c8726459d67a76f82ee133bbc3fb47aaaa6c214a5769b414791607672e204e52544a61b55a623a3dc46c7a04adac89ad556503424475889cc8269edab4b5b4ce42b6391609a48c82f5a0546b7df7e73efbe98e8b1e4055596705e378c875330208081141880844d261b5a8d9532df339bc9777bb86fefcd0446b16a7ebc1eb62bd3573740b807d723844040b101bf96b80e072eeb4012b5d3b8600201b644892e4d89b774dd3f0d9feb8312ecc5c952062a7f4b6d75490c0d6640f67cfdd8974307488bdc27c7184f9f408ba2c4046d751446676b503768e3e0a18470df09b809517a5128408444230d4b977fda35f80d2653d6f2b027c64aa2741e8665cc09b4f4d2cdcb33b728e9db697cd2e5673ef4dc3538c47244f719e1bacd62b9465852ccb8f01a07da326d0e45daea133c79a87dea56b6a2541088134c95a451ffe9a26956b13e76328a551146b68a5eaf5f0c4e0d72849739c3bff3c4c26db0c02aaaaa0e9ec10c56a89aa2c01f65ed526e1d5c09a81926308128ef5c775b20a3b71d3e461d8689b1412a6d207ffe1631f8d8441adf90abf78e8a1a23e391f02a84b798df6de7618358b47f5b19b013e5406bbe2838860b4425956adf3eb77e90cc3e698afbdfb4e3612d7501a41208ed36321e0d02a390901accf60056d740dfcc67963e5f9eede01760fce224e1236c698e9ec088bc5144629484190924024114509e2388590128a158ad22ac142d88c249fa7d0e680041b3f31685c7174ff74361b47515ccf350280288e4004a54a7d23bc89b767bbca5ca824f6e900c717b7a1aa3e8077454178ac2b2e3c300c33ca6a0d9b4e255af76acd8901edb27eac72c730aca18db5a3a328425114a811d6512709421c7967cff17bfbdcc13e91e3239b4551ba3a027222a0d18706598eb3672e609059a36bb55ad072b98014114410db005c328b1050550155945045894466bd310fbb4676ddb409c4141134f3f9e97cbe0de086ff5900402c63dcb87e540821fe3fb7a21d20a043c9cdb17672443ff08f03f5f8f72e428448d6e5185e1b5faf974e1633ba48180eef81ab4d50d3f8fc01d4514def2822b2e2d0732bff9e4ddd3fac796736672a29e7a5eb5a20f6fe02db3b07d8dada0511412925e68bb96066971c633393a4b46c9d8480725ec8725d80b5412c23c4510c29c5b135adbda441799c1004c3665cac8bbdf5ba6305e4798eaded2d90101f63e07a5881b3e905bb00eb3b27f475df8a45717c781978bc2884d9a0283603c18f6e9874936209b8f074c0aaeb74b58023da081ca1aad62e747ddc04ac8349456173005bef4e48d20cdb7b7b88125b52b65a2db15a2e2058839c2e5287a49951aa0a6abd4255ac50566bd8787f5afb27c2d887ff6e7d1a0a6cbc1805984d56a97277b55ae083bfff7b001c020c8619a2484248f155067f2d84d3263da04f0708173d7415fbefe1b5358803c0763fa1d9d405b2a5b2ea446dbc3b1713f8fd8984a3f2462e875cce3ebfa1f886cd0a106caa98e716dd79696d3d8a5a29f8aaa4660d08793ec264bc0521ac2eb15a2daddb9681c0790d9b2452a12c6d4a994d0953563cc551cb43dbe5524aab7a6d2cfc0c006442888b00707474d420000048297070b07719301f62d35e54afe9f701b0bbe88d57ad9dde149edbd5aa378902cf7e3d9585f7870b47770b32bb730c11b0d145acbb1410000b1b3009825c1649a2631d3becef14e810c7111770c198720da55527146d9f3fcc2788e30c5a1be7ea5dda39b67c261a5a57d06501551428ab352ae5621468d6a4ad8037b90f56e9d5ad3561662acb322acb125e11ac11400881cb4f5d6641e2b718b81c022d0ccd7617b8bbe80d8be6639ca04f67380ef4f6b08bdc1cf7ec9fa849180911a43b975004f934ae506baeb370fd75b0cf13422076c11e00adf7d7cae610f659341ef99b4ca6b04e119022c270388294b2c9185eaf41c61c6b6ce11d49b636a1b275056c8e215c570429e74c325a81fc9c6dea9bc8b2ece2cffcccff8083838336026c6f6f439004409f31da7c2a94dbde14ea3a56fa46c846fbccb77ae274b207b07b8d1f761e7631b5f69eb6cd4a60287e426ba4a196c6cf608ccdfe236a8a5842a07a642aabb236c1c279fbe7f9cc65df27c8ae0383995c454f5a5379e522856c6cb790268ae81245eae054a3b44ad9ce740e5de70050960556ab25d8181b0cf3194846b33146bff085f7376b112e962042559a29117dd068d61c40a84f0fe8037e1ffbefb268f75f2fcbeec3ea2e727473eb4276dfa790f9142ca049e7aae567ed943230ac9cacf4655e0d802d701b0f9fb5cd6daa58c8fa6d367369ad04361d22686a0dbdb3a8aa3985aa7b1c185630aca08daf766a620f766ebe5ef1b87f42298de5720eafe9db943c9be206665d55d5133ffdd37f05972e5d3a8e00833c459ac69052feb6617ed4d8fa3e069aaad53e8076bf7b6084a3cdfadbca53f812fe5e61fe61fbbe366c6bb4b61e3c6c164b0deb6f72f9429949448df7b383e0511c2376b1f80691b40bf156485d1e7ef8be0ddb2e50b88c9caef563cbb864dd10a2acaa769e02dab1930679ed3d7c1d86af4c6a27a0308aa2c072b984aaacbbdbb0a91352995144517c8548e0e2c58bc711201f8d2024214ea32f81cc6f1b634c28bbfb4cb94dd640f75c2104205c7dbe5374bb66669f15d0653acc2e31446b4812885cc0a38f3b79f7afcf590ce7d570a3e391492125a23481881aef9acf1f2c8b125c290cd2b4e5d8f20860eb00d728aba237f9234d520821a18d415d1e6e1cb2c297ace980c3558187d2a6a5471dbf7fe380d2b68864bd04b46d66a589eb2c6c223113241e1be623bcead5af3d8e0000b0bbb783e57ca599f9578c31df742fc09bccc1eee893ddf5355e7853fbfc3ebf42f7da5a0133da2dae412423a441764b5717681c326d4ba1e53a0eaeade30d44751cc02fbc5d0783b25c8309c806792be52c54dccac2e613864a9d31daea0d490ae32d983a35acd1137c9d82b570ac26eff502906b4e1137a1df1001aaaac272b9c06ab56ad624f0a4c6517469381a5e1a8ef2fa786f6998101202e2b30cfe9031561520a263903f49890b815bcbc03a32885ab5ef3a8bfc3dc267844a9caa8a9abd45718c344dddad8e8ba366218f67141f4b1e45887c025996d78beb6bfcb45228aa35442c3118e6ad79b61060bd822a8b63569094114846d08e2d87d9d4cc0ca37dad4498b1d4ac0d8190c43ef49bb47a20313396ab2566f3292a97cd1ce4dfd8c091945f3b7b70706334b8090210018aab12e00f68638eac24681222424075f582f642b62b729b4959b3ab2bebba222144227fcc6ac61a604296da162c56a13cfe1e16204ddd425fee5ecdd502ee21a54436c85a594061ca7612a7c8d2416b8edee3581405d685afffe7d67b45d246f04264f1c76d2d82b68a209b16f278455308697b02a419646ca3837eddcbaac46231c572b9b04db3881ca7d120c3d61a10d1975ef7e00fad29105dbd08707076df6ac9027f00e08fd875ef6af069f338a66439c8846cb80be030cd2aa4d4ae038799a11ccb14526230c86b53ac2ba2fc3dc3f06fd76102c0452f9b6b0559132b4b1b0408e7688c419ab6f3044205d0eb004a35d4eb56a696d9de5af085b40dd07d516d53601b125b1cc548d301e22445e49a53f9fbaf964bcce7335be8ea1c5b866de18bd106045148193dfc9e5f78378c6894d78dd5c1040181e8aa20f1abc69879e873ef52a59f607dd380bdfaf3ed0bf77b13bbf73de998cfb01191409ae7685b176da40a53b06bf9de89a0d556468dac042913a4c9a08518da6854ca7636c9f31c719c34caa1bbbfcd36722e5ba35aa24d5053f164b891f50dc0552db21a25b0cd5de324b38da7e20c918cebb9555585d97c665bd05496e29919a65280661b1096d14c08faea703844d10d06f58d8333fb7e017e471bfd872668f91252f226abc02f30b3afc96f7cd3ddd1c7319a63edf33c22467184c160d08b806e662e01a4ed130fe7d77803db22209211922469711ead745d14321a8d5d5672dbd5acb54d022dcab5f3da057e094175ff23ef9831c680b57185a36da0f7c54f7cd7b2344d10b9de8444c06ab5c47c3645b9b6012a8001371f425dc43b1de4f98de1708477bef39d3747007b9451aae206c3fc8a366a6e8ca1aedcefd301c249878b505555fbf63df2b8fb3b7782341e01e23845eae4701f12d8ee1fde0434ad056d8901a7f4d9bf360298b81cbb5099f4082c45843c1fc2a6bf358e2f6b6d68a8aa7091c226e924e488e1bd6c7f1bcf05c2e45bd4e6afff4b4448e2a4ceff1364dddc6555623a3bc26a3983ae4a800d0806469580f18e2f812489bf30198f9f48d3768adb8908b0b7b787484610247e970d7fdc2f6068db868bdb0eb8b41d145e813b0959fa11a2935fa00d22d1346af4a968a1b56181d2cefe09c54b98922d3c85fa9c191248d30c511c05a24441a902ac15b22445960de0ddc7a1ebb6aa2a5b9051357900758a3b49808d75fb6a5db79661c32dfd279ca7bd162017bf48b3ccea002e73586b8df9ccb27eff4c8f3c5a6bf79e3192349f8e46e37ff1f0c30f2f0e0eda5d456fda22269609a6f3e9f52ccd7e99995f036008340fe82eee71938a6a31102a63e139211274a939a400000e60365063910435527ab7b07d96a3b40ed2350e2646d3d6c59b59564e8f86e32649c4d8ec1ea52bb0d1b65b589ad6be8190fd575589b2285becdf22996c9a68542538b514cc42d8f2f48e826ca936024140134108db7778900d6abf8775391798cd6dd736ff4cc370311d80846d1e31c8f27f7970eecedf1ce413bce6b5af355f699500001f5a494441546fc1f7641100607bcf56a38a48fc9636faff758bcc7decbf2bb7423dc02e341fc3f2934657340080882218d1ae560a15b136406c41261cb23608461ded1f411048626b6b17829a461095d32598044693ad3a3a1a9a865555a12a0ba8b2b05dc749428ab8ced9f322c0f627725dc905d55640bd969d6b6dc2678c341920c9061071c44a6956aae2f96286f56a015594f52616228a40910433012410a5e9e7c7e3c97b9efad69fac7fecc7de7e6c8d6f8a0000409251aecb4366f36ea5d4e30ec8ad40519f02d796e54d368e4786f0daee77ff7ff75c4b996d7f441709981b0f6055962e33b7490469fe7aad5fb830302149528c46e33a5aa9b5bd47559588e21893adedfa7d1a7bbeb2655b65095d55ce948c5c4fbfc65f6f8c4159fab6733610e5ad85da52a1260f228a6224718ec16082d1701b599683998d36ba5c2c966459bfaa7d2ab65f506c110a84384ed66996befb9ffdf2bb3ebfbddb54033d6d04d8dbdd77a547d943007e4dbb9a284fc57d72bd6b0d74011a0235fcdb3d8fa8a32c3aca575a1de33ca1a9dad4ddeb26d1d32b7c415979d77c4d0743c459e6e668bb7c969535edd234433e1876143f65eb2a5c4f236d6cdd5e1871646e10b42c4b186d20206034d7564ae8edf4c412459145c8e1c4158a662c65cc455124abd5aaf625d875b06962204651aec1829064d9fb7776f77ffdbffee9bf8937bfe5cdcf1c010060381c426b55c571f4cf01fe34335308c44d16419f4fa00bf0eee8ea15bef5aaa75ea04e70a811204cf5f69ab6d2b6fac77721b3f76e8b2886174b764eb6a62e76f7719ca4ac400c8c4693ba183364ff5edcac5d07541fa605ac2fdeb0aadbddf816f420827691c31a81b581ef97683948eceafc7264f990b341ce5a6bb15c2e2db2b9f276634cadd416ab3574556190668f4e26e37f7878e3eaf57c906e5ceb5b46807c344094485c7afcca9701bc4b6b7dd4a7fc85723ee40227998b7d08d0f8c2b96ebe1c45b14b876a9f1b6ad1e4cca3ca67d0805d97ed3602785d805ccebe719536833c8794cdb95555a12c0a4892d8dbd9af95d996ecaf7cb999afb86908c2670797555197a3f9ce1eca7557f16620400ee803a7eddbb6b4499af268b40521242d974b2a8a822adf4b48371b4d28a550ac568865546c4dc6bff4a36f7afbc7cf9fbb80b7bcf5c76e1f010060676707bb67b601d0fb0deb7f6bd8c6089a053d4ebd5d31003429525dc40929b849ab52ae5b465ed7ca8762c36ae9ed7a7966764da70026eb13f7b235b4df7daf232108601badcbf3317c60c95b1295ae90e639c693add6f37cca565515ae7cdb3a62ea8c5e6d7583b22ceb6c1f292d550b61338b2bd7c4c118032163b7c7804fd205642c319a6c21cd325eafd758afd75456058cb6c5adec621cc6d844100d46920d3e341e4ffed9effef6ff63def8c36f3c11a64f0b010000d240197504c2bbc1f8ba075e0850cf0580e31d3bbbf23f3cd703d6cb576fd679d3cbb26cd432d6637dbb3b16b59ecb004cddb1ac91b3764eb28550511c3b274f1b092b556132d9ae7706f1c73c5b2f4bdb51c4771c0df3f96c4e9f0dfd367184148095d53e662085c06838c660903b1164d76938dae2f1641b555589d56a453e33b8522eebd8bd8fcf2c4ed2c1e3c3d1e4ef7fe14b5fbc7cf1ee7b40a29dd574db0870feec0524710c267c4a4af9cb524a132a542110bba2205cd8ae38081d4b7e0101729b2e24b08e1757920d72891568517ff8bcba27315190a367d3a3ba0e21ef4019643972172a6566a7d8ad4024b0bb6b5de3fe7921f03d9278a4ad94571ccb40c3d72092c8f231a2248161760da4ad9b3acfc7180e87ae238b4d051fe6633ed83f0b5529ac562b1465e13283c360914659ae6ce30c99a8d170eb7fbfe7852ffa83fb5ff4005effba076f0acfa7cf01001c9c39409ee41c45d1af81f06922b416decbfcd007ef811fba4fbb9e44ffbfa7e8384e90e779ad49fb400988301e4f00d7b92bd4a0c367fafd049819eb7511288a3ebdcaf9135cefa27c38aa0b2cadfcae50940586c3112693adbab47cbd5ed579fa4ab90e605585aa6c58be8f4286fe89344d311e8f9d1fdf72173606493cc078bc0d21248a7285c5f2107192f2858b773191c06abda4d56a59b78a358ef5836d01ca6ab5621021cf87bfbfbfbbf78b971f7d54fff88fffc42dc1f21921800d6e0045517cc318fd0b002d3d003c650108163c4ce16e277b84193b21076066a4691268e4a6367be238c6683446d8a1c3df2f6c8f166ef45014c5b1be3ade1c64a7238cb6b66c6ffe9602a7b0b3b387288a6baa5faf57351258454c419505aa720da59bfec62d2e0881f168823c1f4208aaa3860c60ec7a0195e51ab3e90d18c3b878c7dd88d30cf3c59c16f339d6c52a2835b3e95eac34d6ab258c31940f065f9f6c6dfdeca5271f7be2ee7befbda993edb610000076767790a409a48cde6b58ff2a09280f40cf0942f91e86833d00c2c048a8000236f931099232abaa44e1bc6ca3d1184992d6cf0a912e440021ec1e3b4244b5eb140843c22e25541b24718aadc93694f2d644b30fd0cef62e6c3a5881c5626ed971d150a3d5150ac711744bc4d93500926480ed9d3d64cec750ad0b544581244990e74368adb05a4d51a9025b93038c473b349b4dc5747684b97ba631a6debcca68db0aae540a324917c3f1f81ffed99ffca98f3df0c08bf1b2577edf2dc3f1192380859241591533c3fa7f32ccef05587b407a53c723415114ad5a7b3fba367c7deba0053d002b6b0b6b664dc65bc700ef17bbaaaaa09fbf2d558f5c3bd52e0278070d1b463ec82165e4122a3c0228a469862ccbb1582c70fdfa354ca747f58e277519962bc4d04ab5587ea393084cc6dbd89aec208aecd639c57a0da534b6267b10c23eb7280b0002e3f11696ab050e0f6f60319fd79cc6770361b6c05f1705848c381f8edfbbb573f07ffcc6bff9757ecd836f7c5a20bc2d04d8dddec36432011bba04c6df01e137d8210133d73e700f64afc97743bf1ef8fe7b5797b0cd162c0b8fe318799ed7ec3f8c377811e333665b1a7e14d55cc823a676a69486818c62b79d8d2f3491804be230c6e0cad54b78fc893f4151163572faad62ca7285e56a06c36d6f9e1fa3e118fb67ce22c9b33ab378b95a209231b6b6769dbf61ede60414aac2f5c3ab582ce7ce7f5062349c38bd0728576b14eb150c31b241fec9c964e7ef5dbd7a75f6d297bce269c3f0f63800604db4410c223c2624fd7744f4cbcc7c18265c18d3946475ad851050a1cb384cd6f02dd7c92a3ab09b3a34bb8f79e78f52aa561a43c4f0e6646df3a31d9757daee39b85c2e1b4f9d9b87f26ddad66bcc66539445d16ac762ab94d7c7f41b3ff27c8cf3e79f87aded5d00b66a675dac50acd7986c6d23cb0641e30a3ba7f96c86c57c8eaa2cb15a2e10c9083b3b3b905262b15860b95cb2511a699a5ddddadafed9279e78f4cbe7ce9dc30beebfef69c3efb6110000b6b776b0b7b307a3f80929c4df65d60f7916e93fd6b911b56c75a0d9e8d12349a8b879c0da0a59cbbe87c3710dbcf07a4f7156992a61bd6a96f52ba56aa4f28a9f554a950dc8688d625d60b55ac1d6e63b0400505605e68b599d0378f5da6527666c71a9361acbd502deb2a8a99f19793ec2c50b77617b6f0f246cb3c7a25ca32856a85481eded3d68626bd31b0dad187194807505560aebc51ce56a8d713eb6ef5514582ee728cb92641495793efea7cf7fc1fdbf73ff8b5e82b7beed78a4ef56c6a9200000acd66b0718fd52adcdeb8cad43ab59f2783c6e01ca2f96af74f188e1b764f5c8123a5dc6e30986c351cdcac3a009807ad384f5da66e484e2c62356182ef63e056374bda7a1df09d45b095a6b2ce633a4490a290496f339ae5ebd029fcf571525968b795d7ce1d3bae238c5c1990bd8d9ddaf5bb7d589a36501411293f104da07749ccb7b381c8188b05c2e309d1e426bed449ec2d1d1218ad50a0c469ca41f19e6f9cf3df2f017aab73d43e003a788003623b60480ef2312fbdecb265cf68e4da46cfad984e22075bb6a7b84f0e7f84503e09c317bad5cbdd0e1c3ccc8b20cc65805c9d6ef5964cab2a6d993b712545de1eb53c1ac57318cdd7bf15196852dc3820de04c67b33a0c5caed7d0a56a35834c9314a3f104d9200764c749c68056950df264198cdb4c8299ea2ce7b22c71787803cbe5a2168347478798cf8e6c46541c5fcd47a37ffcf0173ff3d4b9f3176f0b6eb7bd7368381cc52b2184a1700b2d34a65fd866254d6d948a996b7b3f0c1cf9635246188f2735857b003572de26592689b7d5d72e946ab36899d98985c673e8f30501209256bb2ecab5ddd6460894a5058c68bada596ea135cae50255698b3f57ab257cecc09ab00283c1087194a2741ec8c46de962b983865125f2c110424628b58636ecb6a34da15489a3e90d57dd4390718c75b5c67c31c7ba2841429af168f42fefb8f3e20776f776f0a60d61de5b1da7c601981983c10000be4544aacf44eb7e42a4086bddc28687d6f4c9b0b3b3537306bf71a35714ad8868006cd3d5a4438266ef403f973a81c325a926498a7c985bcfdfba70085338f72dd98dadd93a8b98d96e02b52e505625e68b39aaaaac11374952e4f9085114c3686beec5ae82294d53445240551526931d28dd6c49e789e1e8e806168b39e0f220484acc1673cce73328ad9124e9c7b7b7b7df7df5cab5f2befb1eb86db89d1a02f81c41009a88388cd8f58580db8e92760d7fc832b32cc37038c4f6f6761dab1f0cec6e9e9e23f87c015f366d37514a5a32df7a15a31a6156ab553de724499065992b33f3b103bb939811804c229be8019b4cb25636f65f160556ab19942e20a59dcbdeee3ece5fbc0371964130303bbae11a5ca79032b629e1ac399f8c795dac2d4b77f39eceae63b198d7b98e52da58c6d221592ca3d97030fcb92f7ef6e1af5dbc7007bee77beebf6db89d9a08f09e3f222ad985dd6e8604407f8d4118330873f9429b3e74370f06035cb870b1b6227c73075367e744c8f3bcbe7f5996288aa2de06d6e7dd7997ecda3969e05ab10c06b9330f65a0cc556068acd61691ce9f3f8fa258420a89c9641b8be502ebe502474787889e7c1ce3f116c08cb228c06c15d61bd797ccc6909412655960369bd67b2183813c1f82c158ad567637f2c1e0770e76f77f7b98e778ddebdbc99dcf749c1a070864f71300cdbb36f149bee9aeccef3a52babf87d641e86f5fad56b0fd6f1a4b62329960341a234d338cc71364d900bef9e26834aea38d71142389d3fa3eb6b61f76bfe038c16ab572658d066914218923ac0b5b855b1405288a70eec29d58ad97284b85341b38b3afc4d1f410abd50295b23b88a7690e0663bd5e917d171bceb55e4b09306130186130c86dc08819699ade188d26bff4d8538fcf765d7b975381db69dd68bc35b28114e00a115def02bc0b40ffdbad8c2e72f8ef6122a88f0a86cda0bd05e13982d72b9224c1643271d6035cac3f41960d6aa4f23ac66834425116383cbc0192049944d83b380b921247474788a3044244b871ed1a76b7f630180c7178781d711c5b455169243241b12e309fcd309fcf3099ecd06ab522ff2c76a6a3d5536c65f27038b488ad0c92284196e51fdcdddbf9f7fbfb7b78ddeb7ff094a076ca56801b73c39801b74ef5e16fe1e8e61184e785c925619246f87fd7c51c068ffcf5524a0c0603545585c12087d6dae916b612378a2456eb259456184db67070e63cd224c3d1e121caa2b4ae5c4338bb7fce0cf3098dc75b541405f2e100c6f51d1c0f4758cce758ae97d69f319ae0687a88aa52582d57489c7f9f209065361dcc8a208018c8b3fca9f178eb7ffbd6638f2fefbbfff615bf709c1a0218c5b8717808223acf469f656efcfa7d2304a2ff3f3c066cce220e81ef3fddccda50b1f49ec62e1285b904cdd677cd3dbc691a472926e36d9455892c1960bd58625dac91a703bba7d050637b6fb780e468301cc7f3ab97c14c188d26d0da40a6b12ddd5ecc10a719d65589c57486c56c0aa5152263e5fe78bc8d2c4b319f2facee2304e22c5d8eb726fff8debbeefe836bd7afe175af7dd5e900cc8d534380c31b8770dbafbf1cc0d9509b0f4717b8e16f7d087392e8e8b322420409efe9c54318a60eb94418c5ebea193e31551a8d34cdc0daf6ec61b6b987799e635d14d9e52b976b65b12a2b6469066c6d63b55aa258adec6fc321ae5dbd8ce5dc36724ad30ccc843cb705a74551d62288845c8dc6e37f74c75dcffbb987bffcb0fa0b7ff12f9d16b8ea717a22403046e39c1647ab1f60e6e456e57bdf08293ffcdbe5085de087c31f0b934dfac44e08f03e9112ea176040480111c7905a43f8eedf00cab224d60602d613b85aafac2f4246a8ca12e45ac4552eb4ab5d628bf733b06154a5dbaac6a6dc61381effded933e7dff58daf7e63f1e7ffe24fc1e8ead87bdeee383504d04663315b6e19e69711369b7d5de07647970b9c745e9f68089d4f213b0fa383e135dd34b5902b74b984bd57936e26a9095895aa82260d26726d5e746b83ace679e4b47d8148c4d6e1434dcfbf0856ec54b6e063dfc060341e4246c737ae388d718a4a2001840b00df033400e8d6f69d788740b69fa43bf4517ed757d0a75076bd90611e62b73ab75fb484ddc3655d59ec4bbd99188a6cfd3f0cdb8da78332716676750d4d5d6318b06acddffe76c06c8624e8eaad42e1e98e534180a3a323144509025d0068abaf10a40fa0cfd40cec02ca8fd062089f77338ed24d4aed431e7fad073e4bdb7e4d8408db234efa4cd82ef0c3f8883bce44a0388a1e1de6e36b6555dcd23a3d93716a7e003081489c25a26c13b037c96160b3c9d8a7f8f58d3ebda16b59f4999d9beed78708c1d30090edc1c30d97306cbb7d70cd99fac5541f3274146672e56c9ffd9137fde85c8a67c35ab7e35410c018bf6114650421ba9af8ad8eae8dde0744ffb78ff2c3ef9bceb5f33d5eafd0776e933cda14b784a2a14612a73f686350b1df90badd95a49713a0bf91060048926b027df29ffe93f7605db4b6fb3dd5712aa845cc58af4a0cf2f40cc0d287474f4200ffb2b742d9271d0b29a89b70e27f0fefdf0778ff7b573738ce7d2c607d13c7fa5a97416c93423440b605fd314409ee4544d673ea2ad698d945005d5b1d21ae2649faf9388e11ab5bd3a19ec93825de62b0bb9bc5ebb579915fd92e17b8596ca08fa237b16d7f4e1f62f4718cf0fc93102a4c4debea1bbe1ac77ffcfd5538473680d6d0b0bba885d41f5a25b5b522046ceb2d0b7c228201c0da40c6c9e7b60f0ebea9ca126f7fc73b7ae77b1ae3544400335055bc07e697fa97ebcaba4d32f92425b17b6ed793e7af6d77ff388e049b9c4ec07171d0fdf873c28e9eadb9b98f21dbf309bedad8d86052771e444dd632fc7678c600da805c87d08a35339b8fbcefd7ffcf193620eb698ddbe600579ebcea01b3c3e0bd7a83f8cea26f024e38bae7f451eb4914ded786ee244e71dcc6ef57127d9e5fd8c92b38c9fe06d48d28106c621574d703803ac80420482387752a19b62d6da4982759fab9977fdff703cd167fcfcab86d04908984b6818bf300b6fcefa16c06faddbcdd734f52f8fa90a2cf33b889e374d97197c5f7cbfcc63964034dc1aea70c90b14d99981964dce60c7036822068100c072cbf3b7f90bd860026fb9d6c36f337b3c1e033499ae21d3ff1679f06349efeb86d11404d61e83d00f2ae59d365a77edc0c88279968e1f5febbb7fd43adba8b585da56c13c5f72149f31c87c8e45181e15b4dd4cf16d47084e0b56dfb5d516710c37db8ee5f604bdff36cf0d0ab5ff7da27f676776f150ccf78dc3e0208c207fed51f80c1f7016815a39f24d737297a7d88d11d7dba4417d14e42acee73c37bf8fffb347713ecc3e7e53e889a0f5ce8d92973f67eed669986001668b989c3ae2752cac334ce7ef3dfbdef77f4f983731bd7efb4c66d8b0066c67ffa57de1617cbe2ce3e4a076eaee06dfaff66c0ef3ea38f2b7429f866cfecfbbf7b6feb120e1a39fb03ae8185f44aa0014c50916ce7e1cef6e2c2210f3b4e9065c91f0d47c38f27498c97bef2e9977a3ddd71db1cc01883aaa8860cdcd9e277c13889bdf7998737f30afaf3422ba0eb53ef5eb349b47481bd495708ddb73e1ed0bade5b0cb0142d615dc308fc01ccecdac372fb3a2f4ea450519abcff8f3ff7e9c3838b674f249cd31aa7c0012400ec837111c7f6f7e9f7d69d24db4f62fd9b34fabedfbbde41074876e751784e9fc91afe3deeaed510040847e908ce27b6f29c8356b2270d82552801828ca22a8ae3c7eebefbee3a23e8d91eb7850037ae4da1b406017b002621f837516bf758776c52fefad874c356379f179ed38728beeb5778ed261da375dffa043402ddffce0dd5879ca3aba3d4c86e6c6bb9484a950f06eb4a467536d2b33d6e4b04480957d664ee02631c1eeb02e666ba419f52b64971eb8a10e6e3e1e13e4dde1843c618da240eba0d2dfd6f0d57029809cc04edcc376706b5e6e0b7a2f7f7ba192bf7e708a2a9d6fa0900bec8e6591fb78500b6cf8d02807b01aebb11f6514c08c49b69f8b7ba6037438693b849dfb19b219d3b0b70513e0a328242e4f35d464e8e28b6df05008410d7b3243dccd214dffffda79bfbb769dc16021049dcf1bcb300780f60ea2e6a371ee07f0bc7a645ef9eb3e9dc3e0a0b9123b4fd37e51184f7ee3ea7cdc918be0e9198e1378e0dcfefe616f6dd7f133714423c16c7e90ddfedfbdb316e0b019819cbf92a0670471fb06fe57affb78f726fc6febbd784dfbb7e8193c44b1fc7f0bfdbbfed3d7cc8397a34c23df9ac0bd8bb81c36701dd8d338f473249088828feda9bdff6d6659a6d6eed7adae3b6cd40a5d400c019e0e6f674dfe852e3ad28819b6478df3d4e66e79bcf3dce3982da03636d761d507903dcb68bb9cf39158efa9810a58ca24fffe2cfff3cc7df26f90fdca615e03a6fe4ccbcbfc9f77f2b32bd3b9e8e8ceed305fa72fb3601beab93f4c7ee9b3978aba20e1b3bd7b0ed5964f30699557d6e770dfa5ce4440449749844d1e7f7f7f7519525be5de3b611c08f700387be71abcad8cde473dfb59b44c3d3e110a115d127bf437bbfed59e45a15ec6ef376523ca4259ec09051f4443e183c6a8cc19bdef4a68deb78dae336cd400929654644e9ad68eeb74a95e1f75b1507dd63ddbffe7b37ed7b1372b5f50ac7291810016763e7dad5c6c0378986db18bb0fe87e1ddab29f58440222893e77e1e2dd5765f2ed93ffc0ed5a01762bb4b11062d4a770f9b149ce768fdfcaef7d54df875ce13c4e42a6f0783787efd87cc03663c7346e5cfbfc46346c42c04ddc80409022d2918c3ef1471f7f487733849fed717b5680dde7f61b00de03e031389f589f457012d5decc343c29551b38be8b59dfdf4d88141e0fe7dc455a0030b09b3e72d0112cccfc09117193cc0fe7ef3e14c9e8a958261fdbd9debbed962f4f77dc16021c9cdd471445f33449ff5722fa2fb4513faf8dfe0a135a5a8cb371372e441f657617ae4b49c0668ba17bdf9b9dd77d8607e026c75297637477270defd957f81122876b03f3c96c983f9ca4df5ef60f9c8219b8b3b78dc9ce5819e88f0b49ff3d887edc18f3d794d6efd55a7f456b3dd75ab3ddc8a87fffde3e39e9fff62976feff70f428820cdbaec6567206f7e8b312fadcc87ed7926e238aee603ece85fadeabfb8e44049282e338fec46ffcf35f5ac683ec96d7fdb4c6a9551cecefef034035bd3e7be4ff7ee4f71f79e77d3ff4abdae88b607e318057c3e085ccb80fc0ae80d825a21c80e8526017e0c0f1b84217087da9d7eebbf0d41cde2344ac3ea036ff73dd4fb04ff7b0e736c03e09f07d228109a0482ee234fec49b7ef227216ebe37f7a98f532f3999ecd631a13580af5dbb71e56b32a5f7a9255263f42e33ef10d17dccfc00807b01dc01c2fd0076c86e4a19d7ab03bb60bea41bb0c00923787d9407004208ea023d045257596cd8797b5bf7ae6218fe256e4c41ff8ce0f92d761f36c9ae7f274292c48f4eb6b63e6fb4c1dbdebe796f9f676b3c7b35476eecedd4fd6c0a004f0278522bfdb010e27d87378e44a5cb1cc03966bec0cccf03f002b0780133dd03f02e98f7018c0144ec762af3d9b400c26e6414200a3b00b2430e62e63a07a04fb16c587ed365c4077580aeed0fc0d8445030d75ca0753c186194b1ad1f1022213efa833ff2d66f7de20f3f7c9b2bfdccc6b38e007d4346b5a96300cc017c15c057e7f339a228c2d174160bf0d8289e18e63b00dccbe07bd998bb0cf30b98cd3966ded25ae7c6980c4e94000035bb9a6a63ccda18230178edaa26d1aec8018e07816c48d7faf8379979e1f750510d15c94dba8094914993ec8fdef76bffc2dc7bdff36f67499ff1f88e20c0a6311a8dfcd70ac075f7f9e6f5a32b1fd525414844aad293b22c77b4d6e749d25d91903f600cbf4c293d61e6b30026003266668700991082bc480801e9a93e74ef869cc0f7f8211276476e34e2a2a97f68e67fccc97302f02d079097a488ff381f08bcf281573f2b6b7ab3f15d85009bc6ee562d46141ac4f8da7c3afb681445ff7a3e5f0c97cb555e55d5010877309b7b2070466965589b7d66bc04c05dc6985d80736613bbe410006d45b0eb1d14424080c16c13f76a0ea10d883d82509dfd135e77336f20113d4c91f82660106f7f6740f11f05026c1aa3c918003480a9fb5c02f0b9b22a218870343da2af7fe56b9208b931668bd95cd45adf6d0cdf03e0ac10e20eadf581d53fccae6133603609d810b3116cec8e9cc4616da0ddb089d938846894c54dd4dff563b8bf9c65d9c77efc277ee2e883bff77bdfe6956bc6b39f76fa5d36bc6c7ee44b5fc1f4689a4e67d34c1bb567d89cafaaea00cadc5955e5be36e6ac567a9b882e18a377b5d6db95d60355a91c5a475aeb8899eba6d39e9b78caf7dd4cbb8820a5641945ab244d3ebcbfb7ff370f0f0fbffcc6071fc4c19d777e47d6e34f1d02dc6c7ce6139f4092a674fdfa75b92ecab8288b0ca091d27a628cd9ab8a62970c9f2fcb727fbd5e4b21c55d95aa46a5dba53c8ae36192240752cac421001bad2f11d14c4a79258ea26fe5c3fc91284d3ff253ffc93b9efac8673e85ef7dd9b39fffbf693c8700cf703c75f52a7676b6f1c8235f89ae5eb922ae5dbb86c57c8ebddddd388aa221330b0620886098e7cc5c5cbce30e3d9bcdcceb5ff7baeff4f49f1bcf8de7c673e3b9f1dcf8ff01f12348b0b3352a230000000049454e44ae426082</data>
-    </image>
-    <image name="image1">
-        <data format="PNG" length="184">89504e470d0a1a0a0000000d4948445200000016000000160806000000c4b46c3b0000007f49444154789ced95510a0021084475d9db041ec0e8fa5ecbfdda852d4b11fa6b2028a3570c53a188c00edd7d819935b2504470357f5945559d36000022720f60823d11910b1fac88a894f2f599592d5b52e05aeb6f6cc153e0d6da50ebe12930e2321039f09b0c6fb3542a223ae0033ee085cc2b1d790b3ce1ae3f6f9b150f6d5433af8c7fa5080000000049454e44ae426082</data>
-    </image>
-    <image name="image2">
-        <data format="PNG" length="231">89504e470d0a1a0a0000000d4948445200000016000000160806000000c4b46c3b000000ae49444154789cb594510ec3200c436db45371b6691fd3cee66bb18f5135a219235af04f442b5e2c03a124ec50d942dd09be4537d45a9b5d4be2f85f1243e06393d748126d53661d9e854a624ac6633c40cff8576e51280010406b0d00dab104b9c69d19e887774201f64ebc7c8f342fc678b0ce553cc76b752e37e368d69edc8c2df4f58c01ef8f4f7533fe176a1e482ef4e2380b6ac0b9d0d36a57161430833e130aacdef62f9acd8ab4793cea0d051970cd5b32cc0a0000000049454e44ae426082</data>
-    </image>
-</images>
-<connections>
-    <connection>
-        <sender>fileOpenAction</sender>
-        <signal>activated()</signal>
-        <receiver>NeelixMainWindowBase</receiver>
-        <slot>fileOpen()</slot>
-    </connection>
-    <connection>
-        <sender>fileSaveAsAction</sender>
-        <signal>activated()</signal>
-        <receiver>NeelixMainWindowBase</receiver>
-        <slot>fileSaveAs()</slot>
-    </connection>
-    <connection>
-        <sender>fileExitAction</sender>
-        <signal>activated()</signal>
-        <receiver>NeelixMainWindowBase</receiver>
-        <slot>close()</slot>
-    </connection>
-    <connection>
-        <sender>helpAboutAction</sender>
-        <signal>activated()</signal>
-        <receiver>NeelixMainWindowBase</receiver>
-        <slot>helpAbout()</slot>
-    </connection>
-    <connection>
-        <sender>shelf</sender>
-        <signal>currentChanged(QListViewItem*)</signal>
-        <receiver>NeelixMainWindowBase</receiver>
-        <slot>shelf_currentChanged()</slot>
-    </connection>
-    <connection>
-        <sender>shelf</sender>
-        <signal>itemRenamed(QListViewItem*,int,const QString&amp;)</signal>
-        <receiver>NeelixMainWindowBase</receiver>
-        <slot>shelf_item_renamed(QListViewItem*,int,const QString&amp;)</slot>
-    </connection>
-    <connection>
-        <sender>editAdd_RecipeAction</sender>
-        <signal>activated()</signal>
-        <receiver>NeelixMainWindowBase</receiver>
-        <slot>editAdd_Recipe()</slot>
-    </connection>
-    <connection>
-        <sender>editAdd_IngredientAction</sender>
-        <signal>activated()</signal>
-        <receiver>NeelixMainWindowBase</receiver>
-        <slot>editAdd_Ingredient()</slot>
-    </connection>
-    <connection>
-        <sender>fileNewAction</sender>
-        <signal>activated()</signal>
-        <receiver>NeelixMainWindowBase</receiver>
-        <slot>fileNew()</slot>
-    </connection>
-    <connection>
-        <sender>add_recipe</sender>
-        <signal>clicked()</signal>
-        <receiver>editAdd_RecipeAction</receiver>
-        <slot>activate()</slot>
-    </connection>
-    <connection>
-        <sender>rm_recipe</sender>
-        <signal>clicked()</signal>
-        <receiver>rm_recipe_action</receiver>
-        <slot>activate()</slot>
-    </connection>
-    <connection>
-        <sender>rm_recipe_action</sender>
-        <signal>activated()</signal>
-        <receiver>NeelixMainWindowBase</receiver>
-        <slot>delete_recipe()</slot>
-    </connection>
-    <connection>
-        <sender>rm_ingredient_action</sender>
-        <signal>activated()</signal>
-        <receiver>NeelixMainWindowBase</receiver>
-        <slot>delete_ingredient()</slot>
-    </connection>
-    <connection>
-        <sender>add_ingredient</sender>
-        <signal>clicked()</signal>
-        <receiver>editAdd_IngredientAction</receiver>
-        <slot>activate()</slot>
-    </connection>
-    <connection>
-        <sender>rm_ingredient</sender>
-        <signal>clicked()</signal>
-        <receiver>rm_ingredient_action</receiver>
-        <slot>activate()</slot>
-    </connection>
-    <connection>
-        <sender>ingredients_table</sender>
-        <signal>currentChanged(int,int)</signal>
-        <receiver>NeelixMainWindowBase</receiver>
-        <slot>ingredient_current_changed(int,int)</slot>
-    </connection>
-    <connection>
-        <sender>ingredients_table</sender>
-        <signal>valueChanged(int,int)</signal>
-        <receiver>NeelixMainWindowBase</receiver>
-        <slot>ingredient_value_changed(int,int)</slot>
-    </connection>
-    <connection>
-        <sender>save_action</sender>
-        <signal>activated()</signal>
-        <receiver>NeelixMainWindowBase</receiver>
-        <slot>save()</slot>
-    </connection>
-</connections>
-<tabstops>
-    <tabstop>shelf</tabstop>
-    <tabstop>recipename_entry</tabstop>
-    <tabstop>author_entry</tabstop>
-    <tabstop>tottime_entry</tabstop>
-    <tabstop>yields_entry</tabstop>
-    <tabstop>ingredients_table</tabstop>
-    <tabstop>directions_edit</tabstop>
-    <tabstop>editTab</tabstop>
-    <tabstop>notes_edit</tabstop>
-    <tabstop>rm_recipe</tabstop>
-</tabstops>
-<slots>
-    <slot>recipename_changed( const QString &amp; )</slot>
-    <slot>fileOpen()</slot>
-    <slot>fileSaveAs()</slot>
-    <slot>shelf_item_renamed( QListViewItem * item, int col, const QString &amp; text )</slot>
-    <slot>helpAbout()</slot>
-    <slot>shelf_currentChanged()</slot>
-    <slot>tottime_changed( const QString &amp; )</slot>
-    <slot>ingredient_changed( int, int )</slot>
-    <slot>yields_changed( const QString &amp; )</slot>
-    <slot>directions_changed()</slot>
-    <slot>note_changed( const QString &amp; )</slot>
-    <slot>note_changed()</slot>
-    <slot>editAdd_Category()</slot>
-    <slot>editAdd_Ingredient()</slot>
-    <slot>editAdd_Recipe()</slot>
-    <slot>author_changed( const QString &amp; )</slot>
-    <slot>fileNew()</slot>
-    <slot>shelf_selectionChanged()</slot>
-    <slot>delete_ingredient()</slot>
-    <slot>delete_recipe()</slot>
-    <slot>save()</slot>
-    <slot>destroyed( QObject * )</slot>
-    <slot>ingredient_value_changed( int, int )</slot>
-    <slot>ingredient_current_changed( int, int )</slot>
-    <slot>ingredient_row_moved( int, int, int)</slot>
-    <slot>notes_changed( const QString &amp; )</slot>
-    <slot>notes_changed()</slot>
-</slots>
-<layoutdefaults spacing="6" margin="11"/>
-</UI>
+    <addaction name="actionSave" />
+    <addaction name="actionExit" />
+   </widget>
+   <widget class="QMenu" name="menuEdit" >
+    <property name="title" >
+     <string>Edit</string>
+    </property>
+    <addaction name="actionAdd_Recipe" />
+    <addaction name="actionAdd_Ingredient" />
+    <addaction name="separator" />
+    <addaction name="actionDelete_Recipe" />
+    <addaction name="actionDelete_Ingredient" />
+   </widget>
+   <widget class="QMenu" name="menuHelp" >
+    <property name="title" >
+     <string>Help</string>
+    </property>
+    <addaction name="actionAbout" />
+   </widget>
+   <addaction name="menuFile" />
+   <addaction name="menuEdit" />
+   <addaction name="menuHelp" />
+  </widget>
+  <widget class="QStatusBar" name="statusbar" />
+  <action name="actionSave" >
+   <property name="text" >
+    <string>Save</string>
+   </property>
+  </action>
+  <action name="actionExit" >
+   <property name="text" >
+    <string>Exit</string>
+   </property>
+  </action>
+  <action name="actionAdd_Recipe" >
+   <property name="text" >
+    <string>Add Recipe</string>
+   </property>
+  </action>
+  <action name="actionAdd_Ingredient" >
+   <property name="text" >
+    <string>Add Ingredient</string>
+   </property>
+  </action>
+  <action name="actionDelete_Recipe" >
+   <property name="text" >
+    <string>Delete Recipe</string>
+   </property>
+  </action>
+  <action name="actionDelete_Ingredient" >
+   <property name="text" >
+    <string>Delete Ingredient</string>
+   </property>
+  </action>
+  <action name="actionAbout" >
+   <property name="text" >
+    <string>About</string>
+   </property>
+  </action>
+ </widget>
+ <tabstops>
+  <tabstop>shelf</tabstop>
+  <tabstop>recipename_entry</tabstop>
+  <tabstop>author_entry</tabstop>
+  <tabstop>tottime_entry</tabstop>
+  <tabstop>yields_entry</tabstop>
+  <tabstop>ingredients_table</tabstop>
+  <tabstop>directions_edit</tabstop>
+  <tabstop>notes_edit</tabstop>
+  <tabstop>editTab_3</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>
