@@ -32,7 +32,7 @@ class IngredientTableModel < Qt::AbstractTableModel
 
   def data(index, role=Qt::DisplayRole)
     invalid = Qt::Variant.new
-    return invalid unless role == Qt::DisplayRole
+    return invalid unless role == Qt::DisplayRole or role == Qt::EditRole
     i = ingredients[index.row]
     return invalid if i.nil?
 

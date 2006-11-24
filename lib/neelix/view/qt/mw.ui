@@ -282,6 +282,9 @@
                    <verstretch>0</verstretch>
                   </sizepolicy>
                  </property>
+                 <property name="editTriggers" >
+                  <set>QAbstractItemView::AnyKeyPressed|QAbstractItemView::DoubleClicked|QAbstractItemView::EditKeyPressed|QAbstractItemView::NoEditTriggers|QAbstractItemView::SelectedClicked</set>
+                 </property>
                 </widget>
                </item>
               </layout>
@@ -515,6 +518,7 @@
   <tabstop>notes_edit</tabstop>
   <tabstop>editTab</tabstop>
  </tabstops>
+ <includes/>
  <resources/>
  <connections>
   <connection>
