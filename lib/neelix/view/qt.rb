@@ -1,103 +1,8 @@
 require 'neelix'
 require 'neelix/view/qt/mw.rb'
 require 'neelix/view/qt/aboutdialog.rb'
-
-# TODO
-# - shelf model
-# - ingredients table model editable
-# - wire up QtNeelix
-
-class IngredientTableModel < Qt::AbstractTableModel
-  def initialize(r)
-    super(nil)
-    @recipe = r
-  end
-
-  def ingredients
-    @recipe.ingredients
-  end
-
-  def recipe=(r)
-    @recipe = r
-    emit dataChanged(index, index)
-  end
-
-  def rowCount(parent=nil)
-    ingredients.size
-  end
-
-  def columnCount(parent=nil)
-    4
-  end
-
-  def data(index, role=Qt::DisplayRole)
-    invalid = Qt::Variant.new
-    return invalid unless role == Qt::DisplayRole or role == Qt::EditRole
-    i = ingredients[index.row]
-    return invalid if i.nil?
-
-    v = case index.column
-        when 0
-          sprintf("%g",i.quantity) unless i.quantity.nil?
-        when 1
-          i.measure.name unless i.measure.nil?
-        when 2
-          i.food.name unless i.food.nil?
-        when 3
-          i.modifier
-        end
-    return Qt::Variant.new(v)
-  end
-
-  def headerData(section, orientation, role=Qt::DisplayRole)
-    invalid = Qt::Variant.new
-    return invalid unless role == Qt::DisplayRole
-
-    v = case orientation
-        when Qt::Horizontal
-          ["Quantity","Measure","Food","Modifier"][section]
-        when Qt::Vertical
-          section
-        end
-    return Qt::Variant.new(v)
-  end
-
-  def flags(index)
-    return Qt::ItemIsEnabled unless index.isValid
-    return Qt::ItemIsEditable | super(index)
-  end
-
-  def setData(index, variant, role)
-    if index.isValid and role == Qt::EditRole
-      s = variant.toString
-      i = ingredients[index.row]
-      case index.column
-      when 0
-        i.quantity = s.to_f
-      when 1
-        i.measure ||= Measure.new
-        i.measure.name = s
-        i.measure.save
-      when 2
-        i.food ||= Food.new
-        i.food.name = s
-        i.food.save
-      when 3
-        i.modifier = s
-      end
-      i.save
-
-      emit dataChanged(index, index)
-      return true
-    else
-      return false
-    end
-  end
-end
-
-class ShelfModel < Qt::AbstractItemModel
-  # TODO
-end
+require 'neelix/view/qt/ingredients.rb'
+require 'neelix/view/qt/shelf.rb'
 
 class QtNeelix < Qt::MainWindow
   def initialize
@@ -122,8 +27,15 @@ class QtNeelix < Qt::MainWindow
     @ui.actionAbout.connect(SIGNAL(:triggered), &method(:about))
 
     self.recipe = Recipe.find(:all).first || Recipe.new
+    @ui.shelf.model = ShelfModel.new
 
-    @ui.ingredients_table.model = IngredientTableModel.new(self.recipe)
+    # disabled for debugging
+    #@ui.shelf.connect(SIGNAL('clicked(const QModelIndex&)')) do |index|
+    #  r = index.internalPointer
+    #  if Recipe === r
+    #    self.recipe = r
+    #  end
+    #end
 
     ObjectSpace.define_finalizer(self, proc { @recipe.save unless @recipe.nil?})
   end
@@ -158,10 +70,11 @@ class QtNeelix < Qt::MainWindow
     @ui.yields_entry.text = r.yields
     @ui.directions_edit.text = r.directions
     @ui.notes_edit.text = r.notes
+    @ui.ingredients_table.model ||= IngredientTableModel.new(r)
+    @ui.ingredients_table.model.recipe = r
   end
 
   def save
-    # XXX Can we save the whole db (any changed recipes)?
     recipe.save
   end
 

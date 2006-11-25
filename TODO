@@ -1,9 +1,9 @@
 core:
     - looks like the db creation isn't taking. needs to be saved maybe?
 qt:
+    - complete transition to qt4
     - Toolbar: save, exit
     - column autosizing
-    - directions word wrap
 
 next:
     - meal plans
